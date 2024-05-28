@@ -1,3 +1,5 @@
+.DS_Store
+
 # Godot 4+ specific ignores
 .godot/
 
@@ -13,3 +15,6 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Blender specific ignores
+*.blend1
