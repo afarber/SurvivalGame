@@ -1,20 +1,33 @@
 extends CharacterBody3D
 
-const NORMAL_SPEED = 3.0
-const SPRINT_SPEED = 5.0
-const JUMP_VELOCITY = 4.0
-const GRAVITY = 0.2
-const MOUSE_SENSITIVITY = 0.005
+@export var normal_speed := 3.0
+@export var sprint_speed := 5.0
+@export var jump_velocity := 4.0
+@export var mouse_sensitivity := 0.005
+@export var gravity := 0.2
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+#var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+@onready var head: Node3D = $Head
+
+func _physics_process(delta: float) -> void:
+	move()
+
+func move() -> void:
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var direction := transform.basis * Vector3(input_dir.x, 0,  input_dir.y)
+	velocity.x = direction.x * normal_speed
+	velocity.y = direction.y * normal_speed
 
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
-func _physics_process(delta):
+
+func _physics_process2(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
