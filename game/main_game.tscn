@@ -39,6 +39,7 @@ ambient_light_sky_contribution = 0.5
 [node name="Terrain" parent="StageController/Island" instance=ExtResource("1_0sj5l")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StageController/Island/Terrain"]
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StageController/Island/Terrain/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gf358")
