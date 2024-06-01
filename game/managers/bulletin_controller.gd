@@ -18,6 +18,6 @@ func  create_bulletin(key: BulletinConfig.Keys, extra_arg = null):
 func  destroy_bulletin(key: BulletinConfig.Keys):
 	if not bulletins.has(key):
 		return
-		
+
 	bulletins[key].queue_free()
 	bulletins.erase(key)
