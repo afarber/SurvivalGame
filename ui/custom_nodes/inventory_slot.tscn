@@ -1,6 +1,25 @@
-[gd_scene format=3 uid="uid://cx13reh88ypo6"]
+[gd_scene load_steps=2 format=3 uid="uid://cx13reh88ypo6"]
+
+[ext_resource type="Texture2D" uid="uid://bgaslrcoa6qdm" path="res://textures/panel_brown.png" id="1_ulyf3"]
 
 [node name="InventorySlot" type="TextureRect"]
 custom_minimum_size = Vector2(96, 96)
 offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("1_ulyf3")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2

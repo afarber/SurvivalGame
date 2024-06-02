@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://wrug1fa8nn3u"]
+[gd_scene load_steps=10 format=3 uid="uid://wrug1fa8nn3u"]
 
 [ext_resource type="Texture2D" uid="uid://b1ebctl7iq84j" path="res://textures/panelInset_beige.png" id="1_kwdm0"]
 [ext_resource type="Texture2D" uid="uid://crgxf64u1u8xv" path="res://textures/cross.png" id="2_0ief8"]
+[ext_resource type="PackedScene" uid="uid://cx13reh88ypo6" path="res://ui/custom_nodes/inventory_slot.tscn" id="2_y4hma"]
 [ext_resource type="Texture2D" uid="uid://ci8mr30yoa35j" path="res://textures/panelInset_brown.png" id="3_gpggs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkrg6"]
@@ -52,6 +53,101 @@ patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 48
 patch_margin_bottom = 32
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 7
+
+[node name="InventorySlot" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot21" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot22" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot23" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot24" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot25" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot26" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot27" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
+
+[node name="InventorySlot28" parent="MarginContainer/HBoxContainer/VSplitContainer/NinePatchRect/GridContainer" instance=ExtResource("2_y4hma")]
+layout_mode = 2
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VSplitContainer"]
 layout_mode = 2
