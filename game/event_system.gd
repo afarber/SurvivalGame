@@ -4,3 +4,6 @@ signal BUL_create_bulletin
 signal BUL_destroy_bulletin
 
 signal INV_try_to_pickup_item
+
+signal PLY_freeze_player
+signal PLY_unfreeze_player

@@ -12,6 +12,16 @@ extends CharacterBody3D
 @onready var head: Node3D = $Head
 @onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
 
+func _enter_tree() -> void:
+	EventSystem.PLY_freeze_player.connect(set_freeze.bind(true))
+	EventSystem.PLY_unfreeze_player.connect(set_freeze.bind(false))
+
+func set_freeze(freeze: bool) -> void:
+	set_process(!freeze)
+	set_physics_process(!freeze)
+	set_process_input(!freeze)
+	set_process_unhandled_key_input(!freeze)
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
