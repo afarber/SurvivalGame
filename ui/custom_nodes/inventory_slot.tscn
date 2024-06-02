@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cx13reh88ypo6"]
+
+[node name="InventorySlot" type="TextureRect"]
+custom_minimum_size = Vector2(96, 96)
+offset_right = 40.0
+offset_bottom = 40.0
