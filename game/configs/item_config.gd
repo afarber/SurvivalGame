@@ -7,7 +7,9 @@ enum Keys {
 }
 
 const ITEM_RESOURCE_PATHS := {
-	Keys.Stick: "res://resources/item_resources/stick_resource.tres"
+	Keys.Stick: "res://resources/item_resources/stick_resource.tres",
+	Keys.Stone: "res://resources/item_resources/stone_resource.tres",
+	Keys.Plant: "res://resources/item_resources/plant_resource.tres"
 }
 
 static func get_resource(key: Keys) -> ItemResource:
