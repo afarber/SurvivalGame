@@ -17,3 +17,18 @@ func update_icon() -> void:
 		icon_texture_rect.texture = null
 		return
 	icon_texture_rect.texture = ItemConfig.get_resource(item_key).icon
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	if item_key:
+		# return this item slot as the thing to be dragged
+		return self
+	
+	# the slot item is not set and thus cannot be dragged
+	return null
+
+# The origin_slot param is what the _get_drag_data returns
+func _can_drop_data(at_position: Vector2, origin_slot: Variant) -> bool:
+	return slot is InventorySlot
+
+func _drop_data(at_position: Vector2, origin_slot: Variant) -> void:
+	EventSystem.INV_switch_two_item_indexes.emit(origin_slot.get_index(), )
