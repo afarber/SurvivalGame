@@ -42,11 +42,15 @@ func update_display_name() -> void:
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if item_key != null:
-		var drag_preview := TextureRect.new()
-		drag_preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		drag_preview.texture = icon_texture_rect.texture
-		drag_preview.custom_minimum_size = Vector2(80, 80)
-		drag_preview.modulate = Color(1, 1, 1, 0.75)
+		var drag_preview := Control.new()
+		var texture_rect := TextureRect.new()
+		texture_rect.modulate = Color(1, 1, 1, 0.75)
+		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		texture_rect.texture = icon_texture_rect.texture
+		texture_rect.custom_minimum_size = Vector2(80, 80)
+		# center-align the texture_rect, so that mouse pointer is in its middle
+		texture_rect.position = -0.5 * texture_rect.custom_minimum_size
+		drag_preview.add_child(texture_rect)
 		set_drag_preview(drag_preview)
 		# return this item slot as the thing to be dragged
 		return self
