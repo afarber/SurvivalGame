@@ -7,6 +7,7 @@ class_name InventorySlot
 # Type not specified here for the var, because it can also be null
 var item_key
 var display_name
+var description
 
 func _enter_tree() -> void:
 	mouse_entered.connect(send_display_name)
@@ -17,7 +18,10 @@ func send_display_name() -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		return
 
-	EventSystem.INV_show_item_info.emit(display_name)
+	if display_name and description:
+		EventSystem.INV_show_item_info.emit(display_name + "\n\n" + description)
+	else:
+		EventSystem.INV_show_item_info.emit("")
 
 func hide_item_info() -> void:
 	EventSystem.INV_show_item_info.emit("")
@@ -25,20 +29,19 @@ func hide_item_info() -> void:
 # Type not specified here for the param, because it can also be null
 func set_item_key(_item_key) -> void:
 	item_key = _item_key
-	update_icon()
-	update_display_name()
+	update()
 
-func update_icon() -> void:
+func update() -> void:
 	if item_key == null:
 		icon_texture_rect.texture = null
-		return
-	icon_texture_rect.texture = ItemConfig.get_resource(item_key).icon
-
-func update_display_name() -> void:
-	if item_key == null:
 		display_name = null
+		description = null
 		return
-	display_name = ItemConfig.get_resource(item_key).display_name
+
+	var resource:ItemResource = ItemConfig.get_resource(item_key)
+	icon_texture_rect.texture = resource.icon
+	display_name = resource.display_name
+	description = resource.description
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if item_key != null:
