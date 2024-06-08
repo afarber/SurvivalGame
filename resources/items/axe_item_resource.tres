@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://brlpxto5pxubg"]
+
+[ext_resource type="Texture2D" uid="uid://c4w6xr0ui3g8u" path="res://textures/item_icons/axe.png" id="1_ue0rp"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_okn78"]
+
+[resource]
+script = ExtResource("2_okn78")
+item_key = 10
+display_name = "Axe"
+icon = ExtResource("1_ue0rp")
+description = "A green plant"

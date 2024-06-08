@@ -25,6 +25,18 @@ enum Keys {
 	Raft
 }
 
+const CRAFTABLE_ITEM_KEYS: Array[Keys] = [
+	Keys.Axe,
+	#Keys.Pickaxe,
+	#Keys.Campfire,
+	#Keys.Multitool,
+	Keys.Rope,
+	#Keys.Tinderbox,
+	#Keys.Torch,
+	#Keys.Tent,
+	#Keys.Raft
+]
+
 const ITEM_RESOURCES := {
 	Keys.Stick : "res://resources/items/stick_item_resource.tres",
 	Keys.Stone : "res://resources/items/stone_item_resource.tres",
