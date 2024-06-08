@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://c50wnsru6mbnm"]
+
+[ext_resource type="Texture2D" uid="uid://cn1p0eoxxh3vb" path="res://textures/item_icons/mushroom.png" id="1_yir5o"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_t8h7e"]
+
+[resource]
+script = ExtResource("2_t8h7e")
+item_key = 3
+display_name = "Mushroom"
+icon = ExtResource("1_yir5o")
+description = "A tasty mushroom"

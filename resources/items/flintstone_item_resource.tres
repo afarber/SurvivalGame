@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://by3nfix08n7pi"]
+
+[ext_resource type="Texture2D" uid="uid://cbkggp1b6r1e5" path="res://textures/item_icons/flintstone.png" id="1_157yy"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_5v52i"]
+
+[resource]
+script = ExtResource("2_5v52i")
+item_key = 7
+display_name = "Flintstone"
+icon = ExtResource("1_157yy")
+description = "A hard flintstone"

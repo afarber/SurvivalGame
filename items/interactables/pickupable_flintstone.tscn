@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceujswcfaq8f6"]
+
+[ext_resource type="PackedScene" uid="uid://4b3yee1nroyp" path="res://items/interactables/pickupable_template.tscn" id="1_orl6q"]
+[ext_resource type="PackedScene" uid="uid://cvah2owyoineo" path="res://meshes/flintstone.tscn" id="2_qnxei"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nn6cc"]
+radius = 0.11
+
+[node name="PickupableFlintstone" instance=ExtResource("1_orl6q")]
+
+[node name="Pickupable" parent="." index="0"]
+item_key = 7
+prompt = "Pickup flintstone"
+
+[node name="CollisionShape3D" parent="Pickupable" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0166787, 0)
+shape = SubResource("SphereShape3D_nn6cc")
+
+[node name="Flintstone" parent="." index="1" instance=ExtResource("2_qnxei")]

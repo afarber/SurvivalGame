@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://3lb3j2excn6k"]
+
+[ext_resource type="Texture2D" uid="uid://bekvipwnimlki" path="res://textures/item_icons/fruit.png" id="1_rmlc5"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_4kyhl"]
+
+[resource]
+script = ExtResource("2_4kyhl")
+item_key = 4
+display_name = "Fruit"
+icon = ExtResource("1_rmlc5")
+description = "A tasty fruit"

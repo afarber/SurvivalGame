@@ -38,10 +38,10 @@ func update() -> void:
 		description = null
 		return
 
-	var resource:ItemResource = ItemConfig.get_resource(item_key)
-	icon_texture_rect.texture = resource.icon
-	display_name = resource.display_name
-	description = resource.description
+	var item_resource:ItemResource = ItemConfig.get_item_resource(item_key)
+	icon_texture_rect.texture = item_resource.icon
+	display_name = item_resource.display_name
+	description = item_resource.description
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if item_key != null:

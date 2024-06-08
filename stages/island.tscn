@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkk7pn4wl3eii"]
+[gd_scene load_steps=15 format=3 uid="uid://bkk7pn4wl3eii"]
 
 [ext_resource type="PackedScene" uid="uid://k72nh4why7hu" path="res://meshes/terrain.tscn" id="1_l045f"]
 [ext_resource type="PackedScene" uid="uid://3onklf0n3c1x" path="res://meshes/tree.tscn" id="2_m4k5x"]
-[ext_resource type="PackedScene" uid="uid://bjqpdv42r8hg7" path="res://meshes/mushroom.tscn" id="3_ux0o7"]
+[ext_resource type="PackedScene" uid="uid://bea7dr2hdggho" path="res://items/interactables/pickupable_fruit.tscn" id="4_ci5tp"]
 [ext_resource type="PackedScene" uid="uid://xi47003j8e2i" path="res://items/interactables/pickupable_stick.tscn" id="4_gm4c2"]
+[ext_resource type="PackedScene" uid="uid://hbitfq48m3n1" path="res://items/interactables/pickupable_mushroom.tscn" id="4_s8jtk"]
 [ext_resource type="PackedScene" uid="uid://jkjiyapdscej" path="res://items/interactables/pickupable_stone.tscn" id="5_v2a3h"]
 [ext_resource type="PackedScene" uid="uid://ycnf5b3vfkvh" path="res://items/interactables/pickupable_plant.tscn" id="6_rpwj6"]
 [ext_resource type="PackedScene" uid="uid://c58jbhme1gwfg" path="res://actors/player/player.tscn" id="7_01fi3"]
@@ -52,11 +53,14 @@ transform = Transform3D(1, 0, 0, 0, 0.9976, 0.0692341, 0, -0.0692341, 0.9976, 5.
 [node name="Tree3" parent="." instance=ExtResource("2_m4k5x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55077, -0.0158178, 3.89382)
 
-[node name="Mushroom" parent="." instance=ExtResource("3_ux0o7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0149, 0, 1.15651)
+[node name="PickupableMushroom" parent="." instance=ExtResource("4_s8jtk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.19265, 0, 1.10825)
 
-[node name="Mushroom2" parent="." instance=ExtResource("3_ux0o7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1034, 0, -4.24071)
+[node name="PickupableMushroom2" parent="." instance=ExtResource("4_s8jtk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53214, 0.0103053, -4.11591)
+
+[node name="PickupableFruit" parent="." instance=ExtResource("4_ci5tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81933, 1.3752, -0.932612)
 
 [node name="PickupableStick" parent="." instance=ExtResource("4_gm4c2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
