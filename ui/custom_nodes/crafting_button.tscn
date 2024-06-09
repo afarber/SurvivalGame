@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://chs6nel5h5h81"]
+
+[ext_resource type="Texture2D" uid="uid://l5yo3ih8aue8" path="res://textures/panel_blue.png" id="1_lw6jv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbe4t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CraftingButton" type="TextureRect"]
+custom_minimum_size = Vector2(160, 160)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_lw6jv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="IconTextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbe4t")
