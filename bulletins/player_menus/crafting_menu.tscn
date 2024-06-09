@@ -19,4 +19,6 @@ size_flags_vertical = 3
 [node name="CraftingButtonContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
 columns = 3

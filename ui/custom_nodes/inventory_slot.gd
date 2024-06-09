@@ -10,21 +10,21 @@ var display_name
 var description
 
 func _enter_tree() -> void:
-	mouse_entered.connect(send_display_name)
-	mouse_exited.connect(hide_item_info)
+	mouse_entered.connect(send_description)
+	mouse_exited.connect(hide_description)
 
-func send_display_name() -> void:
-	# Do not send the item display_name if dragging the mouse
+func send_description() -> void:
+	# Do not send when dragging the mouse
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		return
 
 	if display_name and description:
-		EventSystem.INV_show_item_info.emit(display_name + "\n\n" + description)
+		EventSystem.INV_set_description_label.emit(display_name + "\n\n" + description)
 	else:
-		EventSystem.INV_show_item_info.emit("")
+		EventSystem.INV_set_description_label.emit("")
 
-func hide_item_info() -> void:
-	EventSystem.INV_show_item_info.emit("")
+func hide_description() -> void:
+	EventSystem.INV_set_description_label.emit("")
 
 # Type not specified here for the param, because it can also be null
 func set_item_key(_item_key) -> void:

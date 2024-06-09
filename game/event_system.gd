@@ -7,7 +7,8 @@ signal INV_try_to_pickup_item
 signal INV_ask_to_update_inventory
 signal INV_inventory_updated
 signal INV_switch_two_item_indexes
-signal INV_show_item_info
+signal INV_set_description_label
+signal INV_set_extra_info_label
 
 signal PLY_freeze_player
 signal PLY_unfreeze_player
