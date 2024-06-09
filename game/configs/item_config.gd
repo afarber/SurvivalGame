@@ -37,7 +37,7 @@ const CRAFTABLE_ITEM_KEYS: Array[Keys] = [
 	#Keys.Raft
 ]
 
-const ITEM_RESOURCES := {
+const ITEM_RESOURCE_PATHS := {
 	Keys.Stick : "res://resources/items/stick_item_resource.tres",
 	Keys.Stone : "res://resources/items/stone_item_resource.tres",
 	Keys.Plant : "res://resources/items/plant_item_resource.tres",
@@ -63,4 +63,19 @@ const ITEM_RESOURCES := {
 }
 
 static func get_item_resource(item_key:Keys) -> ItemResource:
-	return load(ITEM_RESOURCES[item_key])
+	return load(ITEM_RESOURCE_PATHS[item_key])
+
+const CRAFTING_BLUEPRINT_RESOURCE_PATHS := {
+	Keys.Axe : "res://resources/crafting_blueprints/axe_blueprint.tres",
+	Keys.Rope : "res://resources/crafting_blueprints/rope_blueprint.tres",
+	Keys.Pickaxe : "res://resources/crafting_blueprints/pickaxe_blueprint.tres",
+	Keys.Campfire : "res://resources/crafting_blueprints/campfire_blueprint.tres",
+	Keys.Multitool :"res://resources/crafting_blueprints/multitool_blueprint.tres" ,
+	Keys.Raft : "res://resources/crafting_blueprints/raft_blueprint.tres",
+	Keys.Tent : "res://resources/crafting_blueprints/tent_blueprint.tres",
+	Keys.Tinderbox : "res://resources/crafting_blueprints/tinderbox_blueprint.tres",
+	Keys.Torch : "res://resources/crafting_blueprints/torch_blueprint.tres"
+}
+
+static func get_crafting_blueprint_resource(item_key:Keys) -> CraftingBlueprintResource:
+	return load(CRAFTING_BLUEPRINT_RESOURCE_PATHS[item_key])
