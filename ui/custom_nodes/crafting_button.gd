@@ -15,12 +15,10 @@ func _ready() -> void:
 	button.mouse_exited.connect(hide_crafting_info)
 
 func send_crafting_info() -> void:
-	print("crafting button: send_crafting_info")
 	EventSystem.INV_set_description_label.emit(display_name + "\n\n" + description)
 	EventSystem.INV_set_extra_info_label.emit(requirements)
 
 func hide_crafting_info() -> void:
-	print("crafting button: send_crafting_info")
 	EventSystem.INV_set_description_label.emit("")
 	EventSystem.INV_set_extra_info_label.emit("")
 
@@ -31,4 +29,11 @@ func set_item_key(_item_key) -> void:
 	icon_texture_rect.texture = item_resource.icon
 	display_name = item_resource.display_name
 	description = item_resource.description
-	requirements = "TODO"
+	var blueprint:CraftingBlueprintResource = ItemConfig.get_crafting_blueprint_resource(item_key)
+	requirements = "Requirements\n"
+	for blueprint_cost in blueprint.costs:
+		var cost_name := ItemConfig.get_item_resource(blueprint_cost.item_key).display_name
+		requirements += "\n%s: %d" % [
+			cost_name, 
+			blueprint_cost.amount
+		]
