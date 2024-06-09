@@ -1,9 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://chs6nel5h5h81"]
+[gd_scene load_steps=7 format=3 uid="uid://chs6nel5h5h81"]
 
 [ext_resource type="Texture2D" uid="uid://l5yo3ih8aue8" path="res://textures/panel_blue.png" id="1_lw6jv"]
+[ext_resource type="Script" path="res://ui/custom_nodes/crafting_button.gd" id="2_yr02l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbe4t"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xmy2"]
+bg_color = Color(0, 0.00392157, 0, 0.12549)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adkqv"]
+bg_color = Color(0, 0.00392157, 0, 0.203922)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u17yh"]
+bg_color = Color(0.121569, 0.129412, 0.117647, 0.509804)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -14,6 +36,7 @@ custom_minimum_size = Vector2(160, 160)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_lw6jv")
+script = ExtResource("2_yr02l")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -29,6 +52,7 @@ theme_override_constants/margin_bottom = 16
 
 [node name="IconTextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
+expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -38,3 +62,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_hbe4t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2xmy2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_adkqv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_u17yh")
