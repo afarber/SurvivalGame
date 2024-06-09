@@ -8,6 +8,7 @@ func _enter_tree() -> void:
 	EventSystem.INV_try_to_pickup_item.connect(try_to_pickup_item)
 	EventSystem.INV_ask_to_update_inventory.connect(send_inventory)
 	EventSystem.INV_switch_two_item_indexes.connect(switch_two_item_indexes)
+	EventSystem.INV_add_item.connect(add_item)
 
 func _ready() -> void:
 	inventory.resize(INVENTORY_SIZE)
@@ -30,6 +31,7 @@ func add_item(item_key: ItemConfig.Keys) -> void:
 	for i in inventory.size():
 		if inventory[i] == null:
 			inventory[i] = item_key
+			send_inventory()
 			return
 
 func switch_two_item_indexes(idx1: int, idx2: int) -> void:

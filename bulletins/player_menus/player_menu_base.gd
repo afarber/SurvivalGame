@@ -10,7 +10,7 @@ class_name PlayerMenuBase
 @onready var item_extra_info_label: Label = %ItemExtraInfoLabel
 
 func _enter_tree() -> void:
-	EventSystem.INV_inventory_updated.connect(update_inventory_slots)
+	EventSystem.INV_inventory_updated.connect(update_inventory)
 	EventSystem.INV_set_description_label.connect(set_description_label)
 	EventSystem.INV_set_extra_info_label.connect(set_extra_info_label)
 	
@@ -30,6 +30,6 @@ func set_description_label(str: String) -> void:
 func set_extra_info_label(str: String) -> void:
 	item_extra_info_label.text = str
 
-func update_inventory_slots(inventory: Array) -> void:
+func update_inventory(inventory: Array) -> void:
 	for i in inventory.size():
 		inventory_grid_container.get_child(i).set_item_key(inventory[i])

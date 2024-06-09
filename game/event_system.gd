@@ -9,6 +9,7 @@ signal INV_inventory_updated
 signal INV_switch_two_item_indexes
 signal INV_set_description_label
 signal INV_set_extra_info_label
+signal INV_add_item
 
 signal PLY_freeze_player
 signal PLY_unfreeze_player
