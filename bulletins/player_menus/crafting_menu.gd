@@ -9,5 +9,6 @@ func _ready() -> void:
 		var crafting_button = crafting_button_scene.instantiate()
 		crafting_button_container.add_child(crafting_button)
 		crafting_button.set_item_key(craftable_item_key)
+
 	# Call the _ready() function in player_menu_base.gd
 	super()

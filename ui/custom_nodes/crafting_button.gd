@@ -1,10 +1,11 @@
 extends TextureRect
 
-# Type not specified here for the var, because it can also be null
-var item_key
-var display_name
-var description
-var requirements
+class_name CraftingButton
+
+var item_key: ItemConfig.Keys
+var display_name: String
+var description: String
+var requirements: String
 
 @onready var icon_texture_rect: TextureRect = $MarginContainer/IconTextureRect
 
@@ -29,8 +30,7 @@ func hide_crafting_info() -> void:
 func crafting_button_pressed() -> void:
 	EventSystem.INV_add_item.emit(item_key)
 
-# Type not specified here for the param, because it can also be null
-func set_item_key(_item_key) -> void:
+func set_item_key(_item_key: ItemConfig.Keys) -> void:
 	item_key = _item_key
 	var item_resource:ItemResource = ItemConfig.get_item_resource(item_key)
 	icon_texture_rect.texture = item_resource.icon
