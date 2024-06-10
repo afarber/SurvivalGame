@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccnqpp7movpjs"]
+[gd_scene load_steps=3 format=3 uid="uid://ccnqpp7movpjs"]
 
 [ext_resource type="Texture2D" uid="uid://djfkixjmm1vve" path="res://textures/circle32.png" id="1_j14do"]
+[ext_resource type="PackedScene" uid="uid://44dh76xdsxpd" path="res://ui/custom_nodes/hotbar_slot.tscn" id="2_51vag"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -39,8 +40,35 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HotbarSlotContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 32
 alignment = 1
+
+[node name="HotbarSlot" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot2" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot3" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot4" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot5" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot6" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot7" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot8" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
+
+[node name="HotbarSlot9" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+layout_mode = 2
