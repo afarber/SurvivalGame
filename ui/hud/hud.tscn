@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccnqpp7movpjs"]
+[gd_scene load_steps=4 format=3 uid="uid://ccnqpp7movpjs"]
 
 [ext_resource type="Texture2D" uid="uid://djfkixjmm1vve" path="res://textures/circle32.png" id="1_j14do"]
 [ext_resource type="PackedScene" uid="uid://44dh76xdsxpd" path="res://ui/custom_nodes/hotbar_slot.tscn" id="2_51vag"]
+[ext_resource type="Script" path="res://ui/hud/hotbar_ui.gd" id="2_ht4xi"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -45,6 +46,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 32
 alignment = 1
+script = ExtResource("2_ht4xi")
 
 [node name="HotbarSlot" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
 layout_mode = 2
