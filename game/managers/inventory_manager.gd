@@ -8,6 +8,7 @@ func _enter_tree() -> void:
 	EventSystem.INV_try_to_pickup_item.connect(try_to_pickup_item)
 	EventSystem.INV_ask_to_update_inventory.connect(send_inventory)
 	EventSystem.INV_switch_two_item_indexes.connect(switch_two_item_indexes)
+	EventSystem.INV_delete_crafting_blueprints_costs.connect(delete_crafting_blueprints_costs)
 	EventSystem.INV_add_item.connect(add_item)
 
 func _ready() -> void:
@@ -26,6 +27,20 @@ func try_to_pickup_item(item_key: ItemConfig.Keys, destroy_pickupable: Callable)
 func get_free_slots() -> int:
 	# count how many elements are null
 	return inventory.count(null)
+
+func delete_crafting_blueprints_costs(costs: Array[BlueprintCostData]) -> void:
+	for cost in costs:
+		for _a in cost.amount:
+			delete_item(cost.item_key)
+
+func delete_item(item_key: ItemConfig.Keys) -> void:
+	var index = inventory.rfind(item_key)
+	if index < 0:
+		print(item_key, " not found in the inventory ", inventory)
+		return
+
+	inventory[index] = null
+	send_inventory()
 
 func add_item(item_key: ItemConfig.Keys) -> void:
 	for i in inventory.size():

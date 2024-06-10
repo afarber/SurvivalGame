@@ -28,6 +28,8 @@ func hide_crafting_info() -> void:
 	EventSystem.INV_set_extra_info_label.emit("")
 
 func crafting_button_pressed() -> void:
+	var costs := ItemConfig.get_crafting_blueprint_resource(item_key).costs
+	EventSystem.INV_delete_crafting_blueprints_costs.emit(costs)
 	EventSystem.INV_add_item.emit(item_key)
 
 func set_item_key(_item_key: ItemConfig.Keys) -> void:
@@ -44,9 +46,9 @@ func set_item_key(_item_key: ItemConfig.Keys) -> void:
 	if blueprint.needs_tinderbox:
 		requirements += "\nTinderbox"
 
-	for blueprint_cost in blueprint.costs:
-		var cost_name := ItemConfig.get_item_resource(blueprint_cost.item_key).display_name
+	for cost in blueprint.costs:
+		var cost_name := ItemConfig.get_item_resource(cost.item_key).display_name
 		requirements += "\n%s: %d" % [
 			cost_name, 
-			blueprint_cost.amount
+			cost.amount
 		]
