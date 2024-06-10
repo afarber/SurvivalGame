@@ -61,6 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_hbe4t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2xmy2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_adkqv")
