@@ -64,7 +64,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif event.is_action_pressed("open_crafting_menu"):
 		EventSystem.BUL_create_bulletin.emit(BulletinConfig.Keys.CraftingMenu)
-
+	elif event.is_action_pressed("item_hotkey"):
+		EventSystem.EQU_hotkey_pressed.emit(int(event.as_text()))
 
 
 
