@@ -3,7 +3,7 @@ extends Node
 # no type because it can be either integer or null
 var active_hotbar_slot
 
-var hotbar: Array
+var hotbar: Array = [null, null, null, null, null, null, null, null, null]
 
 func _enter_tree() -> void:
 	EventSystem.INV_hotbar_updated.connect(hotbar_updated)
