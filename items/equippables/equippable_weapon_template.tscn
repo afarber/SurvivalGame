@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw6o116q1lkgl"]
+
+[ext_resource type="PackedScene" uid="uid://clvoo42r2qg2c" path="res://items/equippables/equippable_template.tscn" id="1_sdkos"]
+
+[node name="EquippableWeaponTemplate" instance=ExtResource("1_sdkos")]
