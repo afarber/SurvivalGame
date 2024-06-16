@@ -9,6 +9,9 @@ func _enter_tree() -> void:
 	EventSystem.INV_hotbar_updated.connect(hotbar_updated)
 	EventSystem.EQU_hotkey_pressed.connect(hotkey_pressed)
 
+func _ready() -> void:
+	EventSystem.EQU_active_hotbar_slot_updated.emit(null)
+
 func hotbar_updated(_hotbar: Array) -> void:
 	_hotbar = hotbar
 

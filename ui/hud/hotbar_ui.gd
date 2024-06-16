@@ -8,7 +8,7 @@ func update_hotbar(hotbar: Array) -> void:
 	for slot in get_children():
 		slot.set_item_key(hotbar[slot.get_index()])
 
-# idx can be either integer or null
+# idx can be either integer or null, so do not specify the type
 func active_hotbar_slot_updated(idx) -> void:
 	for slot in get_children():
 		slot.set_highlighted(slot.get_index() == idx)
