@@ -1,5 +1,4 @@
 extends Bulletin
-
 class_name PlayerMenuBase
 
 # Right-click and select "Access as Unique Name", then ctrl-drag to here

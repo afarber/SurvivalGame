@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name HotbarUi
 
 func _enter_tree() -> void:
 	EventSystem.INV_hotbar_updated.connect(update_hotbar)

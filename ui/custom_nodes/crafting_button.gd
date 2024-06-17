@@ -1,5 +1,4 @@
 extends TextureRect
-
 class_name CraftingButton
 
 var item_key: ItemConfig.Keys

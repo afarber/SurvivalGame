@@ -1,5 +1,4 @@
 extends InventorySlot
-
 class_name HotbarSlot
 
 const ACTIVE_COLOR = Color.WHITE

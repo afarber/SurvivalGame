@@ -1,5 +1,4 @@
 extends Node3D
-
 class_name EquippableItem
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

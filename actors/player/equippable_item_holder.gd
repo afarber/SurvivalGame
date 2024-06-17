@@ -1,4 +1,5 @@
 extends Node3D
+class_name EquippableItemHolder
 
 var current_item_scene: Node3D
 

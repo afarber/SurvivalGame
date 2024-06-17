@@ -1,5 +1,4 @@
 extends EquippableItem
-
 class_name EquippableWeapon
 
 @onready var hit_check_marker: Marker3D = $HitCheckMarker

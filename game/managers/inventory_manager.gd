@@ -1,4 +1,5 @@
 extends Node
+class_name InventoryManager
 
 const INVENTORY_SIZE = 28
 const HOTBAR_SIZE = 9

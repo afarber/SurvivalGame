@@ -1,4 +1,5 @@
 extends Node
+class_name EquipedItemManager
 
 # no type because it can be either integer or null
 var active_hotbar_slot

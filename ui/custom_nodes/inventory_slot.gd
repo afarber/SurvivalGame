@@ -1,5 +1,4 @@
 extends TextureRect
-
 class_name InventorySlot
 
 @onready var icon_texture_rect: TextureRect = $MarginContainer/IconTextureRect

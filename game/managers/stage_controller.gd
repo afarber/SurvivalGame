@@ -1,4 +1,5 @@
 extends Node
+class_name StageController
 
 # TODO use events here later
 func _ready() -> void:

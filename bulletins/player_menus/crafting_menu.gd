@@ -1,4 +1,5 @@
 extends PlayerMenuBase
+class_name CraftingMenu
 
 @onready var crafting_button_container: GridContainer = %CraftingButtonContainer
 

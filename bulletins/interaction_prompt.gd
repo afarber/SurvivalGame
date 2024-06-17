@@ -1,4 +1,5 @@
 extends Bulletin
+class_name InteractionPrompt
 
 var prompt_text := ""
 

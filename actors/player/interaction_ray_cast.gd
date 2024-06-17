@@ -1,4 +1,5 @@
 extends RayCast3D
+class_name InteractionRayCast
 
 var is_hitting := false
 

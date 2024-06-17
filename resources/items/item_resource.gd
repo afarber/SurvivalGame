@@ -1,5 +1,4 @@
 extends Resource
-
 class_name ItemResource
 
 @export var item_key: ItemConfig.Keys

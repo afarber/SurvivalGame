@@ -1,5 +1,4 @@
 extends Interactable
-
 class_name Pickupable
 
 @export var item_key: ItemConfig.Keys
