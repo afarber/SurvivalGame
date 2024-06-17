@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://clvoo42r2qg2c"]
 
-[ext_resource type="Script" path="res://items/equippables/equippable_item_template.gd" id="1_lod73"]
+[ext_resource type="Script" path="res://items/equippables/equippable_item.gd" id="1_jk0xd"]
 
 [node name="EquippableItemTemplate" type="Node3D"]
-script = ExtResource("1_lod73")
+script = ExtResource("1_jk0xd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
