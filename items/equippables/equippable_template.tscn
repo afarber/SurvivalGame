@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://clvoo42r2qg2c"]
-
-[node name="EquippableTemplate" type="Node3D"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="MeshHolder" type="Node3D" parent="."]
