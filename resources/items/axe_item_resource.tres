@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://brlpxto5pxubg"]
+[gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://w58m5jujb14s"]
 
+[ext_resource type="Script" path="res://resources/items/weapon_item_resource.gd" id="1_hvhdl"]
 [ext_resource type="Texture2D" uid="uid://c4w6xr0ui3g8u" path="res://textures/item_icons/axe.png" id="1_ue0rp"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_okn78"]
 
 [resource]
-script = ExtResource("2_okn78")
+script = ExtResource("1_hvhdl")
+damage = 20.0
+range = 1.5
 item_key = 10
 display_name = "Axe"
 icon = ExtResource("1_ue0rp")
