@@ -99,3 +99,6 @@ use_item={
 3d_physics/layer_2="actor"
 3d_physics/layer_3="interactable"
 3d_physics/layer_4="hitbox"
+3d_physics/layer_5="big_rigid_pickuppable"
+3d_physics/layer_6="small_rigid_pickuppable"
+3d_physics/layer_7="static_body"
