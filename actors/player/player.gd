@@ -11,6 +11,7 @@ extends CharacterBody3D
 
 @onready var head: Node3D = $Head
 @onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
+@onready var equippable_item_holder: Node3D = $Head/EquippableItemHolder
 
 func _enter_tree() -> void:
 	EventSystem.PLY_freeze_player.connect(set_freeze.bind(true))
@@ -30,6 +31,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	move()
+	if Input.is_action_just_pressed("use_item"):
+		equippable_item_holder.try_to_use_item()
 
 func move() -> void:
 	var is_sprinting := false
