@@ -86,3 +86,10 @@ const EQUIPPABLE_ITEM_PATHS := {
 
 static func get_equippable_item(item_key:Keys) -> PackedScene:
 	return load(EQUIPPABLE_ITEM_PATHS[item_key])
+
+const PICKUPPABLE_ITEM_PATHS := {
+	Keys.Log : "res://items/interactables/rigid_pickupable_log.tscn"
+}
+
+static func get_pickuppable_item(item_key:Keys) -> PackedScene:
+	return load(PICKUPPABLE_ITEM_PATHS[item_key])
