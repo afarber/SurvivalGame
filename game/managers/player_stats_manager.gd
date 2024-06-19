@@ -9,4 +9,4 @@ func _enter_tree() -> void:
 
 func change_energy(energy_change: float) -> void:
 	current_energy += energy_change
-	EventSystem.PLY_energy_updated(MAX_ENERGY, current_energy)
+	EventSystem.PLY_energy_updated.emit(MAX_ENERGY, current_energy)

@@ -6,6 +6,7 @@ class_name Player
 @export var jump_velocity := 4.0
 @export var mouse_sensitivity := 0.005
 @export var gravity := 0.2
+@export var walking_energy_change_per_1m := -0.05
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -31,8 +32,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	interaction_ray_cast.check_interaction()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	move()
+	check_walking_energy_change(delta)
 	if Input.is_action_just_pressed("use_item"):
 		equippable_item_holder.try_to_use_item()
 
@@ -53,6 +55,14 @@ func move() -> void:
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	move_and_slide()
+
+func check_walking_energy_change(delta: float) -> void:
+	if velocity.x or velocity.z:
+		EventSystem.PLY_change_energy.emit(
+			delta *
+			walking_energy_change_per_1m *
+			Vector2(velocity.z, velocity.x).length()
+		)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

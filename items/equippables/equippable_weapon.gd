@@ -9,6 +9,9 @@ func _ready() -> void:
 	hit_check_marker.position.z = -weapon_item_resource.range
 	super()
 
+func change_energy() -> void:
+	EventSystem.PLY_change_energy.emit(weapon_item_resource.energy_consumed_per_use)
+
 func check_hit() -> void:
 	var space_state := get_world_3d().direct_space_state
 	var ray_query_params := PhysicsRayQueryParameters3D.new()
