@@ -12,6 +12,7 @@ signal INV_set_description_label
 signal INV_set_extra_info_label
 signal INV_add_item
 signal INV_delete_crafting_blueprints_costs
+signal INV_delete_item_by_index
 
 signal PLY_freeze_player
 signal PLY_unfreeze_player
@@ -24,5 +25,6 @@ signal EQU_hotkey_pressed
 signal EQU_equip_item
 signal EQU_unequip_item
 signal EQU_active_hotbar_slot_updated
+signal EQU_delete_equipped_item
 
 signal SPA_spawn_scene

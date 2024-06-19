@@ -1,0 +1,4 @@
+extends EquippableItem
+class_name EquippableConsumable
+
+var consumable_item_resource: ConsumableItemResource
