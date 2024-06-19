@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c58jbhme1gwfg"]
+[gd_scene load_steps=8 format=3 uid="uid://c58jbhme1gwfg"]
 
 [ext_resource type="Script" path="res://actors/player/player.gd" id="1_ff0ac"]
+[ext_resource type="Script" path="res://actors/player/main_camera.gd" id="2_idpls"]
 [ext_resource type="Script" path="res://actors/player/interaction_ray_cast.gd" id="2_vb3ph"]
 [ext_resource type="Script" path="res://game/managers/inventory_manager.gd" id="3_ck1kf"]
 [ext_resource type="Script" path="res://actors/player/equippable_item_holder.gd" id="3_efnku"]
@@ -22,6 +23,8 @@ shape = SubResource("CapsuleShape3D_4lt5m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.7, 2.08165e-12)
 
 [node name="MainCamera" type="Camera3D" parent="Head"]
+cull_mask = 1048573
+script = ExtResource("2_idpls")
 
 [node name="InteractionRayCast" type="RayCast3D" parent="Head"]
 target_position = Vector3(2.08165e-12, 2.08165e-12, -2.2)
@@ -29,7 +32,26 @@ collision_mask = 4
 collide_with_areas = true
 script = ExtResource("2_vb3ph")
 
-[node name="EquippableItemHolder" type="Node3D" parent="Head"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Head/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="EquippableItemCamera" type="Camera3D" parent="Head/SubViewportContainer/SubViewport"]
+cull_mask = 1048574
+
+[node name="EquippableItemHolder" type="Node3D" parent="Head/SubViewportContainer/SubViewport/EquippableItemCamera"]
+unique_name_in_owner = true
 script = ExtResource("3_efnku")
 
 [node name="Managers" type="Node" parent="."]

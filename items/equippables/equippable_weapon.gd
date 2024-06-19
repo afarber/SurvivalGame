@@ -7,6 +7,7 @@ var weapon_item_resource: WeaponItemResource
 
 func _ready() -> void:
 	hit_check_marker.position.z = -weapon_item_resource.range
+	super()
 
 func check_hit() -> void:
 	var space_state := get_world_3d().direct_space_state
