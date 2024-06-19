@@ -17,6 +17,8 @@ signal PLY_freeze_player
 signal PLY_unfreeze_player
 signal PLY_change_energy
 signal PLY_energy_updated
+signal PLY_change_health
+signal PLY_health_updated
 
 signal EQU_hotkey_pressed
 signal EQU_equip_item

@@ -81,7 +81,19 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_constants/separation = 16
 script = ExtResource("4_1e41u")
+
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/PlayerStatsContainer"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+step = 0.1
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_7e2mv")
+texture_progress = ExtResource("4_7e2mv")
+tint_under = Color(0.203922, 0.203922, 0.203922, 1)
+tint_progress = Color(1, 0.2, 0.258824, 1)
 
 [node name="EnergyBar" type="TextureProgressBar" parent="MarginContainer/PlayerStatsContainer"]
 custom_minimum_size = Vector2(256, 32)

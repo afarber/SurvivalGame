@@ -42,5 +42,3 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ResidueStaticBody" index="1"]
 shape = SubResource("ConvexPolygonShape3D_0kw7e")
-
-[connection signal="register_hit" from="Hitbox" to="." method="register_hit"]
