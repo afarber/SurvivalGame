@@ -15,6 +15,8 @@ signal INV_delete_crafting_blueprints_costs
 
 signal PLY_freeze_player
 signal PLY_unfreeze_player
+signal PLY_change_energy
+signal PLY_energy_updated
 
 signal EQU_hotkey_pressed
 signal EQU_equip_item
