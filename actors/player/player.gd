@@ -27,10 +27,10 @@ func set_freeze(freeze: bool) -> void:
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	interaction_ray_cast.check_interaction()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move()
 	if Input.is_action_just_pressed("use_item"):
 		equippable_item_holder.try_to_use_item()

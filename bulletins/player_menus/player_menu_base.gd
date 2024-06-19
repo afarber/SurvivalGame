@@ -23,11 +23,11 @@ func close() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	EventSystem.BUL_destroy_bulletin.emit(BulletinConfig.Keys.CraftingMenu)
 
-func set_description_label(str: String) -> void:
-	item_description_label.text = str
+func set_description_label(label: String) -> void:
+	item_description_label.text = label
 
-func set_extra_info_label(str: String) -> void:
-	item_extra_info_label.text = str
+func set_extra_info_label(label: String) -> void:
+	item_extra_info_label.text = label
 
 func update_inventory(inventory: Array) -> void:
 	for i in inventory.size():

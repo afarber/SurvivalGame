@@ -42,7 +42,7 @@ func update() -> void:
 	display_name = item_resource.display_name
 	description = item_resource.description
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_data(_at_position: Vector2) -> Variant:
 	if item_key != null:
 		var drag_preview := Control.new()
 		var texture_rect := TextureRect.new()
@@ -61,7 +61,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return null
 
 # The origin_slot param is what the _get_drag_data returns
-func _can_drop_data(at_position: Vector2, origin_slot: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, origin_slot: Variant) -> bool:
 	# when the inventory slot is occupied by an item and the item is equippable, 
 	# then swap it with the item dragged from the hotbar
 	if item_key != null and origin_slot is HotbarSlot:
@@ -69,7 +69,7 @@ func _can_drop_data(at_position: Vector2, origin_slot: Variant) -> bool:
 
 	return origin_slot is InventorySlot
 
-func _drop_data(at_position: Vector2, origin_slot: Variant) -> void:
+func _drop_data(_at_position: Vector2, origin_slot: Variant) -> void:
 	EventSystem.INV_switch_two_item_indexes.emit(
 		origin_slot.get_index(), 
 		origin_slot is HotbarSlot,
