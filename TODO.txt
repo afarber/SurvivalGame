@@ -1,0 +1,6 @@
+- Fix the tree stump only appearing once
+
+- When no items are equipped, left mouse click should pickup item at the floor
+
+- Implement stackable inventory items with a number in the inventory slot corner
+
