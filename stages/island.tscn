@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkk7pn4wl3eii"]
+[gd_scene load_steps=18 format=3 uid="uid://bkk7pn4wl3eii"]
 
 [ext_resource type="PackedScene" uid="uid://k72nh4why7hu" path="res://meshes/terrain.tscn" id="1_l045f"]
 [ext_resource type="PackedScene" uid="uid://bea7dr2hdggho" path="res://items/interactables/pickupable_fruit.tscn" id="4_ci5tp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c58jbhme1gwfg" path="res://actors/player/player.tscn" id="7_01fi3"]
 [ext_resource type="PackedScene" uid="uid://cqdp18gj225xc" path="res://objects/hittable_objects/hittable_tree.tscn" id="9_eupie"]
 [ext_resource type="PackedScene" uid="uid://dudvlb3olb81r" path="res://game/managers/spawner.tscn" id="9_k7e2s"]
+[ext_resource type="PackedScene" uid="uid://ckxsa5p2maahr" path="res://objects/hittable_objects/hittable_flintstone_boulder.tscn" id="9_t2snf"]
 [ext_resource type="PackedScene" uid="uid://bajr3tb4nv3i5" path="res://objects/hittable_objects/hittable_coal_boulder.tscn" id="10_0q6jb"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gf358"]
@@ -102,6 +103,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96471, 0, -0.341348)
 [node name="PickupablePlant4" parent="." instance=ExtResource("6_rpwj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54964, 2.38419e-07, 0.547798)
 
+[node name="HittableCoalBoulder" parent="." instance=ExtResource("10_0q6jb")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 5, 0, 7)
+
+[node name="HittableCoalBoulder2" parent="." instance=ExtResource("10_0q6jb")]
+transform = Transform3D(0.66445, 0.66445, -0.342069, -0.707107, 0.707107, 0, 0.24188, 0.24188, 0.939675, 6.83606, 0, 3.56783)
+
+[node name="HittableFlintstoneBoulder" parent="." instance=ExtResource("9_t2snf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6)
+
+[node name="HittableFlintstoneBoulder2" parent="." instance=ExtResource("9_t2snf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 8)
+
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0567877, -4.56717, 0.0230827)
 mesh = SubResource("PlaneMesh_d0iaf")
@@ -118,9 +131,3 @@ environment = SubResource("Environment_d3ukl")
 transform = Transform3D(0.650271, 0, 0.759703, 0, 1, 0, -0.759703, 0, 0.650271, 6.60765, 1.09456, 2.30571)
 
 [node name="Spawner" parent="." instance=ExtResource("9_k7e2s")]
-
-[node name="HittableCoalBoulder" parent="." instance=ExtResource("10_0q6jb")]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 5, 0, 7)
-
-[node name="HittableCoalBoulder2" parent="." instance=ExtResource("10_0q6jb")]
-transform = Transform3D(0.66445, 0.66445, -0.342069, -0.707107, 0.707107, 0, 0.24188, 0.24188, 0.939675, 6.83606, 0, 3.56783)

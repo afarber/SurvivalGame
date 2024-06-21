@@ -91,7 +91,8 @@ static func get_equippable_item(item_key:Keys) -> PackedScene:
 
 const PICKUPPABLE_ITEM_PATHS := {
 	Keys.Log : "res://items/interactables/rigid_pickupable_log.tscn",
-	Keys.Coal : "res://items/interactables/rigid_pickupable_coal.tscn"
+	Keys.Coal : "res://items/interactables/rigid_pickupable_coal.tscn",
+	Keys.Flintstone : "res://items/interactables/pickupable_flintstone.tscn"
 }
 
 static func get_pickuppable_item(item_key:Keys) -> PackedScene:
