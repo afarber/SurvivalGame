@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://f0oeer21ja55"]
+
+[ext_resource type="Texture2D" uid="uid://lem08xtw5ve1" path="res://textures/item_icons/pickaxe.png" id="1_hisb3"]
+[ext_resource type="Script" path="res://resources/items/weapon_item_resource.gd" id="2_ntatb"]
+
+[resource]
+script = ExtResource("2_ntatb")
+damage = 20.0
+range = 1.5
+energy_consumed_per_use = -0.5
+item_key = 11
+display_name = "Pickaxe"
+icon = ExtResource("1_hisb3")
+description = "A sharp pickaxe"
+is_equipable = true
