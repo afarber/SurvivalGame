@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://126tu5n10ffa"]
+
+[ext_resource type="PackedScene" uid="uid://yq3hrs46cqs2" path="res://objects/hitbox/hitbox.tscn" id="1_7vqr0"]
+[ext_resource type="Script" path="res://actors/animals/animal.gd" id="1_lcfw2"]
+
+[node name="Animal" type="CharacterBody3D"]
+script = ExtResource("1_lcfw2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Hitbox" parent="." instance=ExtResource("1_7vqr0")]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="IdleTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[node name="WanderTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="DisappearAfterDeathTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="MeatSpawnMarker" type="Marker3D" parent="."]
