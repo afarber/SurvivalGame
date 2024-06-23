@@ -51,3 +51,12 @@ func pick_wander_velocity() -> void:
 	# forward, then rotate by random value
 	var dir := Vector2(0, -1).rotated(randf() * PI * 2)
 	velocity = Vector3(dir.x, 0, dir.y) * normal_speed
+
+func _on_idle_timer_timeout() -> void:
+	pass # Replace with function body.
+
+func _on_wander_timer_timeout() -> void:
+	pass # Replace with function body.
+
+func _on_disappear_after_death_timer_timeout() -> void:
+	pass # Replace with function body.
