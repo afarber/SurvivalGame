@@ -4,3 +4,4 @@
 
 - Implement stackable inventory items with a number in the inventory slot corner
 
+- When having an Axe equipped and then dragging it from hotbar to inventory slot - the Axe should disappear from the hand (i.e. not be displayed as equipped and be visible at the right side of the screen)

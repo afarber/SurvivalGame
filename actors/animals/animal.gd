@@ -53,10 +53,21 @@ func pick_wander_velocity() -> void:
 	velocity = Vector3(dir.x, 0, dir.y) * normal_speed
 
 func _on_idle_timer_timeout() -> void:
-	pass # Replace with function body.
+	set_state(States.Wander)
 
 func _on_wander_timer_timeout() -> void:
-	pass # Replace with function body.
+	set_state(States.Idle)
 
 func _on_disappear_after_death_timer_timeout() -> void:
-	pass # Replace with function body.
+	queue_free()
+
+func set_state(new_state: States) -> void:
+	state = new_state
+	match state:
+		States.Idle:
+			idle_timer.start(randf_range(min_idle_time, max_idle_time))
+			animation_player.play(idle_animations.pick_random())
+		States.Wander:
+			pick_wander_velocity()
+			wander_timer.start(randf_range(min_wander_time, max_wander_time))
+			animation_player.play("Walk")
