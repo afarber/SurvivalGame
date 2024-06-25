@@ -71,3 +71,18 @@ func set_state(new_state: States) -> void:
 			pick_wander_velocity()
 			wander_timer.start(randf_range(min_wander_time, max_wander_time))
 			animation_player.play("Walk")
+		States.Dead:
+			animation_player.play("Death")
+			main_collision_shape.disabled = true
+			var meat_scene := ItemConfig.get_pickuppable_item(ItemConfig.Keys.RawMeat)
+			EventSystem.SPA_spawn_scene.emit(meat_scene, meat_spawn_marker.global_transform)
+			idle_timer.stop()
+			wander_timer.stop()
+			set_physics_process(false)
+			disappear_after_death_timer.start(10)
+
+func take_hit(wepon_item_resource: WeaponItemResource) -> void:
+	health -= wepon_item_resource.damage
+	
+	if state != States.Dead and health < 0:
+		set_state(States.Dead)

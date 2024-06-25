@@ -29,6 +29,7 @@ one_shot = true
 
 [node name="MeatSpawnMarker" type="Marker3D" parent="."]
 
+[connection signal="register_hit" from="Hitbox" to="." method="take_hit"]
 [connection signal="timeout" from="Timers/IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="Timers/WanderTimer" to="." method="_on_wander_timer_timeout"]
 [connection signal="timeout" from="Timers/DisappearAfterDeathTimer" to="." method="_on_disappear_after_death_timer_timeout"]
