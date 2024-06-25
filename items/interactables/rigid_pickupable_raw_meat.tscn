@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8ah1ly3pfnh6"]
+
+[ext_resource type="PackedScene" uid="uid://vs6tfw5gcvwb" path="res://items/interactables/rigid_pickupable_template.tscn" id="1_0boir"]
+[ext_resource type="PackedScene" uid="uid://bi7k4qyk6rs3f" path="res://meshes/raw_meat.tscn" id="2_yk30c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07yxb"]
+radius = 0.123747
+height = 0.52742
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r6bfs"]
+points = PackedVector3Array(-0.00320286, 0.133422, 0.114621, 0.0682995, -0.0311191, 0.0394071, 0.0932615, 0.128878, 0.0538194, 0.089051, 0.222246, 0.0513848, -0.00534567, 0.224159, 0.0871873, -0.0944229, 0.224112, 0.0470154, -0.0987649, 0.138301, 0.0605365, -0.0396871, -0.239905, 0.0171909, 1.13696e-05, -0.050204, 0.0711229, 0.0387324, -0.23847, 0.0189952, 0.0862879, 0.15906, -0.0407843, 0.0399166, -0.238566, -0.0172421, 0.066871, -0.0403984, -0.0386105, 0.0837879, 0.221242, -0.0315022, 0.0309506, 0.237887, 0.0178865, 0.00378949, 0.237887, 0.0335814, -0.0271498, 0.237218, 0.0156692, -0.0271498, 0.237218, -0.0156987, -0.0913778, 0.223538, -0.042719, -0.0917914, 0.142511, -0.0498491, -0.0668482, -0.0403984, -0.0386105, -0.0395931, -0.238566, -0.0162639, -0.0130899, -0.250763, 0.0197125, 0.00901496, -0.247797, 0.0204081, 0.0103683, -0.247941, -0.0205245, -0.00252618, 0.14275, -0.107455, 0.00583833, 0.220572, -0.0933468, 1.13696e-05, -0.0403984, -0.0772172, 0.0271725, 0.237218, -0.0156987, 1.13696e-05, 0.237218, -0.0313718, 0.00581953, 0.220572, -0.0933468, -0.0129959, -0.249184, -0.0195463)
+
+[node name="RigidPickupableRawMeat" instance=ExtResource("1_0boir")]
+collision_layer = 32
+collision_mask = 113
+
+[node name="Pickupable" parent="." index="0"]
+item_key = 8
+prompt = "Pickup raw meat"
+
+[node name="CollisionShape3D" parent="Pickupable" index="0"]
+shape = SubResource("CapsuleShape3D_07yxb")
+
+[node name="RawMeat" parent="." index="1" instance=ExtResource("2_yk30c")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+shape = SubResource("ConvexPolygonShape3D_r6bfs")

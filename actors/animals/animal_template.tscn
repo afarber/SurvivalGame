@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://actors/animals/animal.gd" id="1_lcfw2"]
 
 [node name="Animal" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 67
 script = ExtResource("1_lcfw2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
