@@ -4365,6 +4365,9 @@ shape = SubResource("CapsuleShape3D_8d2m8")
 transform = Transform3D(1, 1.86247e-38, -1.5246e-23, -1.52021e-23, -0.0758141, -0.997122, -1.15586e-24, 0.997122, -0.0758141, 0, 0.908442, -0.0287111)
 shape = SubResource("CapsuleShape3D_0g4tk")
 
+[node name="MeatSpawnMarker" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158762, 0)
+
 [node name="cow" type="Node3D" parent="." index="4"]
 transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0, 0, 0)
 

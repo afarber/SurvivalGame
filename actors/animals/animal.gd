@@ -7,6 +7,9 @@ enum States {
 	Dead
 }
 
+# custom blend time to make animations switch less instant
+const ANIM_BLEND = 0.2
+
 var state := States.Idle
 
 @onready var idle_timer: Timer = %IdleTimer
@@ -33,7 +36,7 @@ func _ready() -> void:
 
 func animation_finished(_animation_name: String) -> void:
 	if state == States.Idle:
-		animation_player.play(idle_animations.pick_random())
+		animation_player.play(idle_animations.pick_random(), ANIM_BLEND)
 
 func _physics_process(_delta: float) -> void:
 	if state == States.Wander:
@@ -66,13 +69,13 @@ func set_state(new_state: States) -> void:
 	match state:
 		States.Idle:
 			idle_timer.start(randf_range(min_idle_time, max_idle_time))
-			animation_player.play(idle_animations.pick_random())
+			animation_player.play(idle_animations.pick_random(), ANIM_BLEND)
 		States.Wander:
 			pick_wander_velocity()
 			wander_timer.start(randf_range(min_wander_time, max_wander_time))
-			animation_player.play("Walk")
+			animation_player.play("Walk", ANIM_BLEND)
 		States.Dead:
-			animation_player.play("Death")
+			animation_player.play("Death", ANIM_BLEND)
 			main_collision_shape.disabled = true
 			var meat_scene := ItemConfig.get_pickuppable_item(ItemConfig.Keys.RawMeat)
 			EventSystem.SPA_spawn_scene.emit(meat_scene, meat_spawn_marker.global_transform)
