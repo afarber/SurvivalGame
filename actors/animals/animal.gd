@@ -4,16 +4,21 @@ class_name Animal
 enum States {
 	Idle,
 	Wander,
+	Hurt,
+	Flee,
 	Dead
 }
 
 # custom blend time to make animations switch less instant
-const ANIM_BLEND = 0.2
+const ANIM_BLEND_TIME = 0.2
 
 var state := States.Idle
 
+@onready var player:CharacterBody3D = get_tree().get_first_node_in_group("Player")
+
 @onready var idle_timer: Timer = %IdleTimer
 @onready var wander_timer: Timer = %WanderTimer
+@onready var flee_timer: Timer = %FleeTimer
 @onready var disappear_after_death_timer: Timer = %DisappearAfterDeathTimer
 
 @onready var main_collision_shape: CollisionShape3D = $CollisionShape3D
@@ -21,13 +26,16 @@ var state := States.Idle
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @export var normal_speed := 0.6
+@export var fleeing_speed := 1.8
 @export var max_health := 80.0
 @export var idle_animations: Array[String] = []
+@export var hurt_animations: Array[String] = []
 @export var turn_speed_weight := 0.07
 @export var min_idle_time := 2.0
 @export var max_idle_time := 7.0
 @export var min_wander_time := 2.0
 @export var max_wander_time := 4.0
+@export var is_aggressive := false
 
 var health := max_health
 
@@ -36,7 +44,7 @@ func _ready() -> void:
 
 func animation_finished(_animation_name: String) -> void:
 	if state == States.Idle:
-		animation_player.play(idle_animations.pick_random(), ANIM_BLEND)
+		animation_player.play(idle_animations.pick_random(), ANIM_BLEND_TIME)
 
 func _physics_process(_delta: float) -> void:
 	if state == States.Wander:
@@ -61,6 +69,9 @@ func _on_idle_timer_timeout() -> void:
 func _on_wander_timer_timeout() -> void:
 	set_state(States.Idle)
 
+func _on_flee_timer_timeout() -> void:
+	pass # Replace with function body.
+
 func _on_disappear_after_death_timer_timeout() -> void:
 	queue_free()
 
@@ -69,13 +80,13 @@ func set_state(new_state: States) -> void:
 	match state:
 		States.Idle:
 			idle_timer.start(randf_range(min_idle_time, max_idle_time))
-			animation_player.play(idle_animations.pick_random(), ANIM_BLEND)
+			animation_player.play(idle_animations.pick_random(), ANIM_BLEND_TIME)
 		States.Wander:
 			pick_wander_velocity()
 			wander_timer.start(randf_range(min_wander_time, max_wander_time))
-			animation_player.play("Walk", ANIM_BLEND)
+			animation_player.play("Walk", ANIM_BLEND_TIME)
 		States.Dead:
-			animation_player.play("Death", ANIM_BLEND)
+			animation_player.play("Death", ANIM_BLEND_TIME)
 			main_collision_shape.disabled = true
 			var meat_scene := ItemConfig.get_pickuppable_item(ItemConfig.Keys.RawMeat)
 			EventSystem.SPA_spawn_scene.emit(meat_scene, meat_spawn_marker.global_transform)
