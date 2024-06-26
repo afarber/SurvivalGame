@@ -30,11 +30,14 @@ var state := States.Idle
 @export var max_health := 80.0
 @export var idle_animations: Array[String] = []
 @export var hurt_animations: Array[String] = []
+@export var flee_animations: Array[String] = []
 @export var turn_speed_weight := 0.07
 @export var min_idle_time := 2.0
 @export var max_idle_time := 7.0
 @export var min_wander_time := 2.0
 @export var max_wander_time := 4.0
+@export var min_flee_time := 3.0
+@export var max_flee_time := 4.0
 @export var is_aggressive := false
 
 var health := max_health
@@ -45,12 +48,21 @@ func _ready() -> void:
 func animation_finished(_animation_name: String) -> void:
 	if state == States.Idle:
 		animation_player.play(idle_animations.pick_random(), ANIM_BLEND_TIME)
+	elif state == States.Hurt:
+		if not is_aggressive:
+			set_state(States.Flee)
 
 func _physics_process(_delta: float) -> void:
 	if state == States.Wander:
 		wander_loop()
+	elif state == States.Flee:
+		flee_loop()
 
 func wander_loop() -> void:
+	look_forward()
+	move_and_slide()
+
+func flee_loop() -> void:
 	look_forward()
 	move_and_slide()
 
@@ -63,6 +75,15 @@ func pick_wander_velocity() -> void:
 	var dir := Vector2(0, -1).rotated(randf() * PI * 2)
 	velocity = Vector3(dir.x, 0, dir.y) * normal_speed
 
+func pick_away_from_player_velocity() -> void:
+	if not player:
+		set_state(States.Idle)
+		return
+	# get direction from player global position to animal global_position
+	var dir := player.global_position.direction_to(global_position)
+	dir.y = 0
+	velocity = dir.normalized() * fleeing_speed
+
 func _on_idle_timer_timeout() -> void:
 	set_state(States.Wander)
 
@@ -70,7 +91,7 @@ func _on_wander_timer_timeout() -> void:
 	set_state(States.Idle)
 
 func _on_flee_timer_timeout() -> void:
-	pass # Replace with function body.
+	set_state(States.Idle)
 
 func _on_disappear_after_death_timer_timeout() -> void:
 	queue_free()
@@ -85,6 +106,15 @@ func set_state(new_state: States) -> void:
 			pick_wander_velocity()
 			wander_timer.start(randf_range(min_wander_time, max_wander_time))
 			animation_player.play("Walk", ANIM_BLEND_TIME)
+		States.Hurt:
+			idle_timer.stop()
+			wander_timer.stop()
+			flee_timer.stop()
+			animation_player.play(hurt_animations.pick_random(), ANIM_BLEND_TIME)
+		States.Flee:
+			pick_away_from_player_velocity()
+			flee_timer.start(randf_range(min_flee_time, max_flee_time))
+			animation_player.play(flee_animations.pick_random(), ANIM_BLEND_TIME)
 		States.Dead:
 			animation_player.play("Death", ANIM_BLEND_TIME)
 			main_collision_shape.disabled = true
@@ -92,6 +122,7 @@ func set_state(new_state: States) -> void:
 			EventSystem.SPA_spawn_scene.emit(meat_scene, meat_spawn_marker.global_transform)
 			idle_timer.stop()
 			wander_timer.stop()
+			flee_timer.stop()
 			set_physics_process(false)
 			disappear_after_death_timer.start(10)
 
@@ -100,3 +131,5 @@ func take_hit(wepon_item_resource: WeaponItemResource) -> void:
 	
 	if state != States.Dead and health < 0:
 		set_state(States.Dead)
+	elif state not in [States.Flee, States.Dead]:
+		set_state(States.Flee)
