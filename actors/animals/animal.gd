@@ -6,6 +6,8 @@ enum States {
 	Wander,
 	Hurt,
 	Flee,
+	Chase,
+	Attack,
 	Dead
 }
 
@@ -23,6 +25,10 @@ var state := States.Idle
 
 @onready var main_collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var meat_spawn_marker: Marker3D = $MeatSpawnMarker
+@onready var eyes_marker: Marker3D = $EyesMarker
+@onready var attack_hit_area: Area3D = $AttackHitArea
+@onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @export var normal_speed := 0.6
