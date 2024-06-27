@@ -27,7 +27,7 @@ var state := States.Idle
 @onready var meat_spawn_marker: Marker3D = $MeatSpawnMarker
 @onready var eyes_marker: Marker3D = $EyesMarker
 @onready var attack_hit_area: Area3D = $AttackHitArea
-@onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var nav_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
@@ -45,6 +45,8 @@ var state := States.Idle
 @export var min_flee_time := 3.0
 @export var max_flee_time := 4.0
 @export var is_aggressive := false
+@export var attack_distance := 2.0
+@export var damage := 20.0
 
 var health := max_health
 
@@ -63,12 +65,29 @@ func _physics_process(_delta: float) -> void:
 		wander_loop()
 	elif state == States.Flee:
 		flee_loop()
+	elif state == States.Chase:
+		chase_loop()
+	elif state == States.Attack:
+		attack_loop()
 
 func wander_loop() -> void:
 	look_forward()
 	move_and_slide()
 
 func flee_loop() -> void:
+	look_forward()
+	move_and_slide()
+
+func chase_loop() -> void:
+	look_forward()
+	if global_position.distance_to(player.global_position) < attack_distance:
+		set_state(States.Attack)
+		return
+	# navigate towards the player
+	nav_agent_3d.target_position = player.global_position
+	var dir := global_position.direction_to(nav_agent_3d.get_next_path_position())
+
+func attack_loop() -> void:
 	look_forward()
 	move_and_slide()
 
