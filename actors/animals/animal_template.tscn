@@ -35,6 +35,9 @@ one_shot = true
 [node name="EyesMarker" type="Marker3D" parent="."]
 
 [node name="AttackHitArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
