@@ -32,7 +32,7 @@ var state := States.Idle
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @export var normal_speed := 0.6
-@export var fleeing_speed := 1.8
+@export var alarmed_speed := 1.8
 @export var max_health := 80.0
 @export var idle_animations: Array[String] = []
 @export var hurt_animations: Array[String] = []
@@ -57,8 +57,9 @@ func animation_finished(_animation_name: String) -> void:
 	if state == States.Idle:
 		animation_player.play(idle_animations.pick_random(), ANIM_BLEND_TIME)
 	elif state == States.Hurt:
-		if not is_aggressive:
-			set_state(States.Flee)
+		set_state(States.Chase if is_aggressive else States.Flee)
+	elif state == States.Attack:
+		set_state(States.Chase)
 
 func _physics_process(_delta: float) -> void:
 	if state == States.Wander:
@@ -86,10 +87,14 @@ func chase_loop() -> void:
 	# navigate towards the player
 	nav_agent_3d.target_position = player.global_position
 	var dir := global_position.direction_to(nav_agent_3d.get_next_path_position())
+	dir.y = 0
+	velocity = dir.normalized() * alarmed_speed
+	move_and_slide()
 
 func attack_loop() -> void:
-	look_forward()
-	move_and_slide()
+	var dir := player.global_position.direction_to(global_position)
+	# rotate towards the player, but do not move
+	rotation.y = lerp_angle(rotation.y, atan2(dir.x, dir.z) + PI, turn_speed_weight)
 
 func look_forward() -> void:
 	# rotate the animal into same direction in which it is moving
@@ -107,7 +112,7 @@ func pick_away_from_player_velocity() -> void:
 	# get direction from player global position to animal global_position
 	var dir := player.global_position.direction_to(global_position)
 	dir.y = 0
-	velocity = dir.normalized() * fleeing_speed
+	velocity = dir.normalized() * alarmed_speed
 
 func _on_idle_timer_timeout() -> void:
 	set_state(States.Wander)
@@ -140,6 +145,13 @@ func set_state(new_state: States) -> void:
 			pick_away_from_player_velocity()
 			flee_timer.start(randf_range(min_flee_time, max_flee_time))
 			animation_player.play(flee_animations.pick_random(), ANIM_BLEND_TIME)
+		States.Chase:
+			idle_timer.stop()
+			wander_timer.stop()
+			flee_timer.stop()
+			animation_player.play("Gallop", ANIM_BLEND_TIME)
+		States.Attack:
+			animation_player.play("Attack", ANIM_BLEND_TIME)
 		States.Dead:
 			animation_player.play("Death", ANIM_BLEND_TIME)
 			main_collision_shape.disabled = true
