@@ -28,6 +28,7 @@ var state := States.Idle
 @onready var eyes_marker: Marker3D = $EyesMarker
 @onready var attack_hit_area: Area3D = $AttackHitArea
 @onready var nav_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var vision_area_collision_shape: CollisionShape3D = $VisionArea/CollisionShape3D
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
@@ -47,11 +48,15 @@ var state := States.Idle
 @export var is_aggressive := false
 @export var attack_distance := 2.0
 @export var damage := 20.0
+@export var vision_range := 15.0
+@export var vision_fov := 80.0
 
+var player_in_vision_range := false
 var health := max_health
 
 func _ready() -> void:
 	animation_player.animation_finished.connect(animation_finished)
+	vision_area_collision_shape.shape.radius = vision_range
 
 func animation_finished(_animation_name: String) -> void:
 	if state == States.Idle:
@@ -174,3 +179,19 @@ func take_hit(wepon_item_resource: WeaponItemResource) -> void:
 		set_state(States.Dead)
 	elif state not in [States.Flee, States.Dead]:
 		set_state(States.Flee)
+
+func player_in_fov() -> bool:
+	if not player:
+		return false
+	
+	var direction_to_player := global_position.direction_to(player.global_position)
+	var animal_forward_direction := -global_transform.basis.z
+	return direction_to_player.angle_to(animal_forward_direction) <= deg_to_rad(vision_fov)
+
+func _on_vision_area_body_entered(body: Node3D) -> void:
+	if body == player:
+		player_in_vision_range = true
+
+func _on_vision_area_body_exited(body: Node3D) -> void:
+	if body == player:
+		player_in_vision_range = false
