@@ -96,6 +96,10 @@ func attack_loop() -> void:
 	# rotate towards the player, but do not move
 	rotation.y = lerp_angle(rotation.y, atan2(dir.x, dir.z) + PI, turn_speed_weight)
 
+func attack() -> void:
+	if player in attack_hit_area.get_overlapping_bodies():
+		EventSystem.PLY_change_health.emit(-damage)
+
 func look_forward() -> void:
 	# rotate the animal into same direction in which it is moving
 	rotation.y = lerp_angle(rotation.y, atan2(velocity.x, velocity.z) + PI, turn_speed_weight)
