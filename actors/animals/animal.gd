@@ -180,13 +180,33 @@ func take_hit(wepon_item_resource: WeaponItemResource) -> void:
 	elif state not in [States.Flee, States.Dead]:
 		set_state(States.Flee)
 
-func player_in_fov() -> bool:
+func can_see_player() -> bool:
+	return player_in_vision_range and is_player_in_fov() and is_player_in_los()
+
+# is the player in the field of view of the animal?
+func is_player_in_fov() -> bool:
 	if not player:
 		return false
 	
 	var direction_to_player := global_position.direction_to(player.global_position)
 	var animal_forward_direction := -global_transform.basis.z
 	return direction_to_player.angle_to(animal_forward_direction) <= deg_to_rad(vision_fov)
+
+# is the player in the line of sight (no obstacles inbetween) of the animal?
+func is_player_in_los() -> bool:
+	if not player:
+		return false
+
+	var query_params := PhysicsRayQueryParameters3D.new()
+	query_params.from = eyes_marker.global_position
+	query_params.to = player.head.global_position + Vector3(0, 1.5, 0)
+	# 1 ground layer + 64 static body layer (tree, boulder, etc)
+	query_params.collision_mask = 1 + 64
+	var space_state := get_world_3d().direct_space_state
+	var result := space_state.intersect_ray(query_params)
+
+	# return true if there are no obstacles between animal and player
+	return result.is_empty()
 
 func _on_vision_area_body_entered(body: Node3D) -> void:
 	if body == player:
