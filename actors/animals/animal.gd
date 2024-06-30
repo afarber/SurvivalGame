@@ -67,7 +67,9 @@ func animation_finished(_animation_name: String) -> void:
 		set_state(States.Chase)
 
 func _physics_process(_delta: float) -> void:
-	if state == States.Wander:
+	if state == States.Idle:
+		idle_loop()
+	elif state == States.Wander:
 		wander_loop()
 	elif state == States.Flee:
 		flee_loop()
@@ -75,10 +77,16 @@ func _physics_process(_delta: float) -> void:
 		chase_loop()
 	elif state == States.Attack:
 		attack_loop()
+		
+func idle_loop() -> void:
+	if is_aggressive and can_see_player():
+		set_state(States.Chase)
 
 func wander_loop() -> void:
 	look_forward()
 	move_and_slide()
+	if is_aggressive and can_see_player():
+		set_state(States.Chase)
 
 func flee_loop() -> void:
 	look_forward()
