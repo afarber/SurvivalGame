@@ -83,7 +83,8 @@ static func get_crafting_blueprint_resource(item_key:Keys) -> CraftingBlueprintR
 const EQUIPPABLE_ITEM_PATHS := {
 	Keys.Axe : "res://items/equippables/equippable_axe.tscn",
 	Keys.Pickaxe : "res://items/equippables/equippable_pickaxe.tscn",
-	Keys.Mushroom : "res://items/equippables/equippable_mushroom.tscn"
+	Keys.Mushroom : "res://items/equippables/equippable_mushroom.tscn",
+	Keys.Tent: "res://items/equippables/equippable_tent.tscn"
 }
 
 static func get_equippable_item(item_key:Keys) -> PackedScene:
@@ -98,3 +99,11 @@ const PICKUPPABLE_ITEM_PATHS := {
 
 static func get_pickuppable_item(item_key:Keys) -> PackedScene:
 	return load(PICKUPPABLE_ITEM_PATHS[item_key])
+
+
+const CONSTRUCTABLE_ITEM_PATHS := {
+	Keys.Tent: "res://objects/constructables/constructable_tent.tscn"
+}
+
+static func get_constructable_scene(item_key:Keys) -> PackedScene:
+	return load(CONSTRUCTABLE_ITEM_PATHS[item_key])

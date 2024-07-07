@@ -46,4 +46,18 @@ func check_build_validity() -> bool:
 		constructable_area.global_position = item_place_ray.to_global(item_place_ray.target_position)
 		return false
 
-# TODO add body_entered
+func construct() -> void:
+	EventSystem.EQU_delete_equipped_item.emit()
+	constructable_area.hide()
+	# stop calling the _process(_delta)
+	set_process(false)
+	var scene := ItemConfig.get_constructable_scene(constructable_item_key)
+	EventSystem.SPA_spawn_scene.emit(scene, constructable_area.global_transform)
+
+func _on_constructable_area_body_entered(body: Node3D) -> void:
+	# append the body that entered the area
+	obstacles.append(body)
+
+func _on_constructable_area_body_exited(body: Node3D) -> void:
+	# remove the body that exited the area
+	obstacles.erase(body)

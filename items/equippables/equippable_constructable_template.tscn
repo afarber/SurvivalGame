@@ -17,3 +17,6 @@ collision_mask = 126
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConstructableArea" index="0"]
 
 [node name="ConstructablePreviewMesh" type="MeshInstance3D" parent="ConstructableArea" index="1"]
+
+[connection signal="body_entered" from="ConstructableArea" to="." method="_on_constructable_area_body_entered"]
+[connection signal="body_exited" from="ConstructableArea" to="." method="_on_constructable_area_body_exited"]
