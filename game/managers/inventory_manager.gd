@@ -21,6 +21,7 @@ func _ready() -> void:
 	# TODO delete later
 	inventory[0] = ItemConfig.Keys.Axe
 	inventory[1] = ItemConfig.Keys.Pickaxe
+	inventory[2] = ItemConfig.Keys.Tent
 
 func send_inventory() -> void:
 	EventSystem.INV_inventory_updated.emit(inventory)

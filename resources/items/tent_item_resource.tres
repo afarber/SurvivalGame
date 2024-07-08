@@ -9,4 +9,4 @@ item_key = 17
 display_name = "Tent"
 icon = ExtResource("1_banm8")
 description = "A small tent"
-is_equipable = false
+is_equipable = true

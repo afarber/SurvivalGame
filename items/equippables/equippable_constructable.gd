@@ -13,6 +13,7 @@ const INVALID_MATERIAL:StandardMaterial3D = preload("res://resources/materials/c
 var constructable_item_key: ItemConfig.Keys
 var obstacles: Array[Node3D] = []
 var place_valid := false
+var is_constructing := false
 
 func _ready() -> void:
 	constructable_area.rotation = Vector3.ZERO
@@ -46,13 +47,17 @@ func check_build_validity() -> bool:
 		constructable_area.global_position = item_place_ray.to_global(item_place_ray.target_position)
 		return false
 
-func construct() -> void:
+func try_to_construct() -> void:
+	if not place_valid:
+		return
+
 	EventSystem.EQU_delete_equipped_item.emit()
 	constructable_area.hide()
 	# stop calling the _process(_delta)
 	set_process(false)
 	var scene := ItemConfig.get_constructable_scene(constructable_item_key)
 	EventSystem.SPA_spawn_scene.emit(scene, constructable_area.global_transform)
+	is_constructing = true
 
 func _on_constructable_area_body_entered(body: Node3D) -> void:
 	# append the body that entered the area
@@ -61,3 +66,10 @@ func _on_constructable_area_body_entered(body: Node3D) -> void:
 func _on_constructable_area_body_exited(body: Node3D) -> void:
 	# remove the body that exited the area
 	obstacles.erase(body)
+
+func destroy_self() -> void:
+	if not is_constructing:
+		return
+	# delete the item from the player hands
+	EventSystem.EQU_unequip_item.emit()
+
