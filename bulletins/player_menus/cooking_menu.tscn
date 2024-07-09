@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bttjqqxwx1lpn"]
+
+[ext_resource type="PackedScene" uid="uid://wrug1fa8nn3u" path="res://bulletins/player_menus/player_menu_base.tscn" id="1_1bjw3"]
+
+[node name="CookingMenu" instance=ExtResource("1_1bjw3")]
+
+[node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/NinePatchRect" index="0"]
+text = "Cooking"
