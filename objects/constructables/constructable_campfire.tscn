@@ -60,7 +60,7 @@ size = Vector2(0.1, 0.1)
 shape = SubResource("ConcavePolygonShape3D_sce2i")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.650654, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 amount = 24
 lifetime = 0.5
 visibility_aabb = AABB(-0.899633, -1.08314, -0.970731, 1.79927, 2.16628, 1.94146)
