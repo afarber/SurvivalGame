@@ -10,9 +10,8 @@ data = PackedVector3Array(-0.0424, -0.1066, -0.0284, -0.0519, -0.1059, 0.2473, 0
 [sub_resource type="SphereShape3D" id="SphereShape3D_xeqq8"]
 radius = 0.552618
 
-[node name="HittableCoalBoulder" node_paths=PackedStringArray("residue_static_body") instance=ExtResource("1_njv1f")]
+[node name="HittableCoalBoulder" instance=ExtResource("1_njv1f")]
 attributes = ExtResource("2_h1pwy")
-residue_static_body = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_spw1p")

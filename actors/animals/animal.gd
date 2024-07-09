@@ -107,7 +107,7 @@ func chase_loop() -> void:
 func attack_loop() -> void:
 	var dir := player.global_position.direction_to(global_position)
 	# rotate towards the player, but do not move
-	rotation.y = lerp_angle(rotation.y, atan2(dir.x, dir.z) + PI, turn_speed_weight)
+	rotation.y = lerp_angle(rotation.y, atan2(dir.x, dir.z), turn_speed_weight)
 
 func attack() -> void:
 	if player in attack_hit_area.get_overlapping_bodies():
