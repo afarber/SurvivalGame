@@ -22,6 +22,7 @@ func _ready() -> void:
 	inventory[0] = ItemConfig.Keys.Axe
 	inventory[1] = ItemConfig.Keys.Pickaxe
 	inventory[2] = ItemConfig.Keys.Tent
+	inventory[3] = ItemConfig.Keys.Campfire
 
 func send_inventory() -> void:
 	EventSystem.INV_inventory_updated.emit(inventory)
