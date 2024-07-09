@@ -60,7 +60,15 @@ size = Vector2(0.1, 0.1)
 shape = SubResource("ConcavePolygonShape3D_sce2i")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.650654, 0)
 amount = 24
 lifetime = 0.5
+visibility_aabb = AABB(-0.899633, -1.08314, -0.970731, 1.79927, 2.16628, 1.94146)
 process_material = SubResource("ParticleProcessMaterial_xp6gw")
 draw_pass_1 = SubResource("QuadMesh_fqm8s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22822, 0)
+layers = 3
+light_color = Color(0.937446, 0.701398, 0.394022, 1)
+shadow_enabled = true
