@@ -13,6 +13,7 @@ signal INV_set_extra_info_label
 signal INV_add_item
 signal INV_delete_crafting_blueprints_costs
 signal INV_delete_item_by_index
+signal INV_add_item_by_index
 
 signal PLY_freeze_player
 signal PLY_unfreeze_player
