@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bttjqqxwx1lpn"]
+[gd_scene load_steps=11 format=3 uid="uid://bttjqqxwx1lpn"]
 
 [ext_resource type="PackedScene" uid="uid://wrug1fa8nn3u" path="res://bulletins/player_menus/player_menu_base.tscn" id="1_1bjw3"]
 [ext_resource type="PackedScene" uid="uid://cx13reh88ypo6" path="res://ui/custom_nodes/inventory_slot.tscn" id="2_3ywop"]
+[ext_resource type="Script" path="res://bulletins/player_menus/cooking_menu.gd" id="2_c5wfb"]
+[ext_resource type="Script" path="res://ui/custom_nodes/starting_cooking_slot.gd" id="3_6cik0"]
 [ext_resource type="Texture2D" uid="uid://cy3r2hnkrbihq" path="res://textures/square32.png" id="3_mdi4r"]
+[ext_resource type="Script" path="res://ui/custom_nodes/final_cooking_slot.gd" id="5_bdcqt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr23k"]
 
@@ -16,6 +19,7 @@ bg_color = Color(0, 0, 0, 0.352941)
 bg_color = Color(0.32549, 0.32549, 0.32549, 1)
 
 [node name="CookingMenu" instance=ExtResource("1_1bjw3")]
+script = ExtResource("2_c5wfb")
 
 [node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/NinePatchRect" index="0"]
 text = "Cooking"
@@ -33,9 +37,12 @@ layout_mode = 2
 theme_override_constants/separation = 32
 
 [node name="StartingCookingSlot" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource("2_3ywop")]
+unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("3_6cik0")
 
 [node name="CookingProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 size_flags_vertical = 4
@@ -46,7 +53,9 @@ tint_under = Color(0.43702, 0.319743, 0.198605, 1)
 tint_progress = Color(0.803922, 0.509804, 0, 1)
 
 [node name="FinalCookingSlot" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" index="2" instance=ExtResource("2_3ywop")]
+unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("5_bdcqt")
 
 [node name="CookingButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" index="1"]
 custom_minimum_size = Vector2(196, 64)
