@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bttjqqxwx1lpn"]
+[gd_scene load_steps=8 format=3 uid="uid://bttjqqxwx1lpn"]
 
 [ext_resource type="PackedScene" uid="uid://wrug1fa8nn3u" path="res://bulletins/player_menus/player_menu_base.tscn" id="1_1bjw3"]
+[ext_resource type="PackedScene" uid="uid://cx13reh88ypo6" path="res://ui/custom_nodes/inventory_slot.tscn" id="2_3ywop"]
+[ext_resource type="Texture2D" uid="uid://cy3r2hnkrbihq" path="res://textures/square32.png" id="3_mdi4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr23k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vygex"]
+bg_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpkqa"]
+bg_color = Color(0, 0, 0, 0.352941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgaub"]
+bg_color = Color(0.32549, 0.32549, 0.32549, 1)
 
 [node name="CookingMenu" instance=ExtResource("1_1bjw3")]
 
@@ -18,3 +31,32 @@ theme_override_constants/separation = 64
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 32
+
+[node name="StartingCookingSlot" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource("2_3ywop")]
+layout_mode = 2
+
+[node name="CookingProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_vertical = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_mdi4r")
+texture_progress = ExtResource("3_mdi4r")
+tint_under = Color(0.43702, 0.319743, 0.198605, 1)
+tint_progress = Color(0.803922, 0.509804, 0, 1)
+
+[node name="FinalCookingSlot" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/HBoxContainer" index="2" instance=ExtResource("2_3ywop")]
+layout_mode = 2
+
+[node name="CookingButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(196, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vr23k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vygex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vpkqa")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lgaub")
+disabled = true
+text = "Cook"
