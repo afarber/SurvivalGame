@@ -58,6 +58,7 @@ layout_mode = 2
 script = ExtResource("5_bdcqt")
 
 [node name="CookingButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(196, 64)
 layout_mode = 2
 size_flags_horizontal = 4
