@@ -56,3 +56,15 @@ func clear_food_visuals() -> void:
 func start_cooking() -> void:
 	state = CookingStates.Cooking
 	cooking_timer.start(cooking_recipe.cooking_time)
+	if not fire_always_on:
+		fire_particles.emitting = true
+		fire_light.show()
+
+func cooking_finished() -> void:
+	state = CookingStates.Cooked
+	clear_food_visuals()
+	food_visuals_holder.add_child(cooking_recipe.cooked_item_visuals.instantiate())
+		
+	if not fire_always_on:
+		fire_particles.emitting = false
+		fire_light.hide()

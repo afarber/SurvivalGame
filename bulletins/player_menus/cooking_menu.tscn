@@ -72,3 +72,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vpkqa")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_lgaub")
 disabled = true
 text = "Cook"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/CookingButton" to="." method="start_cooking"]
