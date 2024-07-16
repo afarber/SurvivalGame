@@ -32,7 +32,22 @@ func uncooked_item_removed() -> void:
 	time_cooked = 0
 
 func start_cooking() -> void:
-	pass
+	cooking_button.disabled = true
+	cooking_progress_bar.value = time_cooked / cooking_recipe.cooking_time
+	var tween = create_tween()
+	tween.tween_property(
+		cooking_progress_bar,
+		"value",
+		cooking_progress_bar.max_value,
+		# to handle cases, where cooking menu is closed and opened again
+		cooking_recipe.cooking_time - time_cooked
+	)
+	tween.tween_callback(finished_cooking)
+
+func finished_cooking() -> void:
+	final_cooking_slot.set_item_key(cooking_recipe.cooked_item)
+	starting_cooking_slot.set_item_key(null)
+	cooking_progress_bar.value = 0
 
 func close() -> void:
 	EventSystem.PLY_unfreeze_player.emit()
