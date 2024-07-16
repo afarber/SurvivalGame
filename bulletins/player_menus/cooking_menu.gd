@@ -8,14 +8,14 @@ class_name CookingMenu
 
 var cooking_recipe: CookingRecipeResource
 var time_cooked: float
-var campfire: Node
+var interactable_cooker: InteractableCooker
 
 func initialize(extra_arg) -> void:
 	if not extra_arg or not extra_arg is Array:
 		return
 	cooking_recipe = extra_arg[0]
 	time_cooked = extra_arg[1]
-	campfire = extra_arg[2]
+	interactable_cooker = extra_arg[2]
 
 func _ready() -> void:
 	starting_cooking_slot.starting_ingredient_enabled.connect(uncooked_item_added)
@@ -32,6 +32,7 @@ func uncooked_item_removed() -> void:
 	time_cooked = 0
 
 func start_cooking() -> void:
+	starting_cooking_slot.cooking_in_progress = true
 	cooking_button.disabled = true
 	cooking_progress_bar.value = time_cooked / cooking_recipe.cooking_time
 	var tween = create_tween()
@@ -48,6 +49,8 @@ func finished_cooking() -> void:
 	final_cooking_slot.set_item_key(cooking_recipe.cooked_item)
 	starting_cooking_slot.set_item_key(null)
 	cooking_progress_bar.value = 0
+	cooking_recipe = null
+	starting_cooking_slot.cooking_in_progress = false
 
 func close() -> void:
 	EventSystem.PLY_unfreeze_player.emit()
