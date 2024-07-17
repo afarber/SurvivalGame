@@ -16,6 +16,8 @@ signal INV_add_item_to_inventory
 signal INV_delete_blueprint_costs_from_inventory
 signal INV_delete_item_by_index
 signal INV_add_item_by_index
+signal INV_set_item_info_label
+signal INV_set_extra_info_label
 
 signal PLA_freeze_player
 signal PLA_unfreeze_player

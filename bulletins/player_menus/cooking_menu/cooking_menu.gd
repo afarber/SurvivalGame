@@ -13,7 +13,7 @@ var cooking_state : InteractableCooker.CookingStates
 
 
 func initialize(extra_arg) -> void:
-	if not extra_arg or not extra_arg is Array:
+	if not extra_arg or not extra_arg is Array or not extra_arg.size() == 4:
 		return
 	
 	cooking_recipe = extra_arg[0]
@@ -23,11 +23,6 @@ func initialize(extra_arg) -> void:
 
 
 func _ready() -> void:
-	starting_cooking_slot.mouse_entered.connect(show_item_info.bind(starting_cooking_slot))
-	starting_cooking_slot.mouse_exited.connect(hide_item_info)
-	final_cooking_slot.mouse_entered.connect(show_item_info.bind(final_cooking_slot))
-	final_cooking_slot.mouse_exited.connect(hide_item_info)
-	
 	starting_cooking_slot.starting_ingredient_enabled.connect(uncooked_item_added)
 	starting_cooking_slot.starting_ingredient_disabled.connect(uncooked_item_removed)
 	
