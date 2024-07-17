@@ -12,11 +12,12 @@ var interactable_cooker: InteractableCooker
 var cooking_state: InteractableCooker.CookingStates
 
 func initialize(extra_arg) -> void:
-	if not extra_arg or not extra_arg is Array:
+	if not extra_arg or not extra_arg is Array or not extra_arg.size() == 4:
 		return
 	cooking_recipe = extra_arg[0]
 	time_cooked = extra_arg[1]
 	interactable_cooker = extra_arg[2]
+	cooking_state = extra_arg[3]
 
 func _ready() -> void:
 	starting_cooking_slot.starting_ingredient_enabled.connect(uncooked_item_added)
@@ -33,6 +34,9 @@ func _ready() -> void:
 
 	elif cooking_state == InteractableCooker.CookingStates.Cooked:
 		final_cooking_slot.set_item_key(cooking_recipe.cooked_item)
+	
+	# freeze the player, show mouse pointer, update the inventory
+	super()
 
 func uncooked_item_added() -> void:
 	cooking_button.disabled = false
@@ -73,7 +77,6 @@ func finished_cooking() -> void:
 	final_cooking_slot.set_item_key(cooking_recipe.cooked_item)
 	starting_cooking_slot.set_item_key(null)
 	cooking_progress_bar.value = 0
-	cooking_recipe = null
 	starting_cooking_slot.cooking_in_progress = false
 
 func close() -> void:

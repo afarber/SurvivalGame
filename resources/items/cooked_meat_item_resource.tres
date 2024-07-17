@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://crf0jvbwa01he"]
+
+[ext_resource type="Resource" uid="uid://cdcmyo7yu1sw" path="res://resources/cooking_recipes/meat_recipe.tres" id="1_p166g"]
+[ext_resource type="Texture2D" uid="uid://cyr7hypir7miy" path="res://textures/item_icons/raw_meat.png" id="2_2wjeg"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="3_u6es4"]
+
+[resource]
+script = ExtResource("3_u6es4")
+item_key = 9
+display_name = "Cooked meat"
+icon = ExtResource("2_2wjeg")
+description = "A tasty meat piece"
+is_equipable = true
+cooking_recipe = ExtResource("1_p166g")

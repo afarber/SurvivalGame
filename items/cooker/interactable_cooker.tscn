@@ -58,6 +58,7 @@ prompt = "Cook"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 
 [node name="CookingTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="FoodVisualsHolder" type="Marker3D" parent="."]
 
@@ -74,3 +75,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22822, 0)
 layers = 3
 light_color = Color(0.937446, 0.701398, 0.394022, 1)
 shadow_enabled = true
+
+[connection signal="timeout" from="CookingTimer" to="." method="cooking_finished"]

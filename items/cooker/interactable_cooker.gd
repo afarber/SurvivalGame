@@ -29,8 +29,9 @@ func start_interaction() -> void:
 		BulletinConfig.Keys.CookingMenu,
 		[
 			cooking_recipe,
-			(cooking_recipe.cooking_time - cooking_timer.time_left) if cooking_recipe else 0,
-			self
+			(cooking_recipe.cooking_time - cooking_timer.time_left) if cooking_recipe and state == CookingStates.Cooking else 0,
+			self,
+			state
 		]
 	)
 
