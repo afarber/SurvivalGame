@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://ctuyjukahry8"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://cgg175rusjvi5"]
 
-[ext_resource type="Texture2D" uid="uid://cyr7hypir7miy" path="res://textures/item_icons/raw_meat.png" id="1_3cotj"]
-[ext_resource type="Resource" uid="uid://cdcmyo7yu1sw" path="res://resources/cooking_recipes/meat_recipe.tres" id="1_56iff"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_lgu1n"]
+[ext_resource type="Texture2D" uid="uid://dglg6625ngyir" path="res://textures/item_icons/raw_meat.png" id="1_i155m"]
+[ext_resource type="Resource" uid="uid://cbtymjfpu8avp" path="res://resources/cooking_recipes/meat_recipe.tres" id="1_t0fbb"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_d3e4i"]
 
 [resource]
-script = ExtResource("2_lgu1n")
+script = ExtResource("2_d3e4i")
 item_key = 8
-display_name = "Raw meat"
-icon = ExtResource("1_3cotj")
-description = "A raw meat piece"
-is_equipable = false
-cooking_recipe = ExtResource("1_56iff")
+display_name = "Raw Meat"
+icon = ExtResource("1_i155m")
+description = "Has potential, don't eat yet."
+is_equippable = false
+cooking_recipe = ExtResource("1_t0fbb")

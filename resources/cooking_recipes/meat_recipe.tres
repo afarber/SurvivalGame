@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="CookingRecipeResource" load_steps=4 format=3 uid="uid://cdcmyo7yu1sw"]
+[gd_resource type="Resource" script_class="CookingRecipeResource" load_steps=4 format=3 uid="uid://cbtymjfpu8avp"]
 
-[ext_resource type="Script" path="res://resources/cooking_recipes/cooking_recipe_resource.gd" id="1_bgmnu"]
-[ext_resource type="PackedScene" uid="uid://dkb33bfrd7mro" path="res://meshes/cooked_meat.tscn" id="1_wf78j"]
-[ext_resource type="PackedScene" uid="uid://bi7k4qyk6rs3f" path="res://meshes/raw_meat.tscn" id="3_r8ta5"]
+[ext_resource type="PackedScene" uid="uid://brjg4041lnixa" path="res://meshes/cooked_meat.tscn" id="1_avor8"]
+[ext_resource type="Script" path="res://resources/cooking_recipes/cooking_recipe_resource.gd" id="1_dsvku"]
+[ext_resource type="PackedScene" uid="uid://dhb5db7ge8tbm" path="res://meshes/raw_meat.tscn" id="3_lcovs"]
 
 [resource]
-script = ExtResource("1_bgmnu")
+script = ExtResource("1_dsvku")
 uncooked_item = 8
-uncooked_item_visuals = ExtResource("3_r8ta5")
+uncooked_item_visuals = ExtResource("3_lcovs")
 cooked_item = 9
-cooked_item_visuals = ExtResource("1_wf78j")
+cooked_item_visuals = ExtResource("1_avor8")
 cooking_time = 5.0

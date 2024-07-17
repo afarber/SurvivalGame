@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyr7hypir7miy"
-path.s3tc="res://.godot/imported/raw_meat.png-225f36df53785a1c0538654a7ace0ced.s3tc.ctex"
+uid="uid://dglg6625ngyir"
+path="res://.godot/imported/raw_meat.png-225f36df53785a1c0538654a7ace0ced.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/item_icons/raw_meat.png"
-dest_files=["res://.godot/imported/raw_meat.png-225f36df53785a1c0538654a7ace0ced.s3tc.ctex"]
+dest_files=["res://.godot/imported/raw_meat.png-225f36df53785a1c0538654a7ace0ced.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

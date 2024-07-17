@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://by3nfix08n7pi"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://i886or7uvpfx"]
 
-[ext_resource type="Texture2D" uid="uid://cbkggp1b6r1e5" path="res://textures/item_icons/flintstone.png" id="1_157yy"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_5v52i"]
+[ext_resource type="Texture2D" uid="uid://dxyhp2mi6nttk" path="res://textures/item_icons/flintstone.png" id="1_hgxfk"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_3svie"]
 
 [resource]
-script = ExtResource("2_5v52i")
+script = ExtResource("2_3svie")
 item_key = 7
 display_name = "Flintstone"
-icon = ExtResource("1_157yy")
-description = "A hard flintstone"
+icon = ExtResource("1_hgxfk")
+description = "A piece of flintstone. Useful for making fire."
+is_equippable = false

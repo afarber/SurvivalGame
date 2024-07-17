@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt07weig8nomi"]
+
+[ext_resource type="PackedScene" uid="uid://twh5kvwtljsj" path="res://bulletins/fading_bulletin/fading_bulletin_template.tscn" id="1_8hy1j"]
+[ext_resource type="Theme" uid="uid://b40t612ee1k4l" path="res://resources/default_ui_theme.tres" id="2_q87b3"]
+[ext_resource type="Script" path="res://bulletins/pause_menu/pause_menu.gd" id="3_f45f2"]
+[ext_resource type="Script" path="res://ui/custom_nodes/ui_button.gd" id="4_bbhlw"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_yuh7s"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_v0hrg"]
+events = [SubResource("InputEventKey_yuh7s")]
+
+[node name="PauseMenu" instance=ExtResource("1_8hy1j")]
+theme = ExtResource("2_q87b3")
+script = ExtResource("3_f45f2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+shortcut = SubResource("Shortcut_v0hrg")
+shortcut_in_tooltip = false
+text = "Resume"
+script = ExtResource("4_bbhlw")
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Settings"
+script = ExtResource("4_bbhlw")
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Exit"
+script = ExtResource("4_bbhlw")
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

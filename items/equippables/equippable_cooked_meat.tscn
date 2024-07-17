@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bodugo2g5db5e"]
+[gd_scene load_steps=6 format=3 uid="uid://cr0vm6asytscm"]
 
-[ext_resource type="PackedScene" uid="uid://bphyc5ocforc6" path="res://items/equippables/equippable_consumable_template.tscn" id="1_myb1r"]
-[ext_resource type="PackedScene" uid="uid://dkb33bfrd7mro" path="res://meshes/cooked_meat.tscn" id="3_7jdcj"]
+[ext_resource type="PackedScene" uid="uid://cl4ignln7i74t" path="res://items/equippables/equippable_consumable_template.tscn" id="1_dbgow"]
+[ext_resource type="PackedScene" uid="uid://brjg4041lnixa" path="res://meshes/cooked_meat.tscn" id="3_33km3"]
 
-[sub_resource type="Animation" id="Animation_1nf23"]
+[sub_resource type="Animation" id="Animation_a1h4f"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -42,7 +42,7 @@ tracks/2/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_1bwr0"]
+[sub_resource type="Animation" id="Animation_ejeba"]
 resource_name = "use_item"
 length = 0.9
 tracks/0/type = "value"
@@ -99,18 +99,18 @@ tracks/3/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpecc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jb5jr"]
 _data = {
-"RESET": SubResource("Animation_1nf23"),
-"use_item": SubResource("Animation_1bwr0")
+"RESET": SubResource("Animation_a1h4f"),
+"use_item": SubResource("Animation_ejeba")
 }
 
-[node name="EquippableCookedMeat" instance=ExtResource("1_myb1r")]
+[node name="EquippableCookedMeat" instance=ExtResource("1_dbgow")]
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_qpecc")
+"": SubResource("AnimationLibrary_jb5jr")
 }
 
-[node name="CookedMeat" parent="MeshHolder" index="0" instance=ExtResource("3_7jdcj")]
+[node name="CookedMeat" parent="MeshHolder" index="0" instance=ExtResource("3_33km3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, -0.26, -0.29)

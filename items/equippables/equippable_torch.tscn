@@ -1,0 +1,168 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpnklkh6sgjwg"]
+
+[ext_resource type="PackedScene" uid="uid://bavpmg0s7k72n" path="res://items/equippables/equippable_weapon_template.tscn" id="1_jjsnu"]
+[ext_resource type="AudioStream" uid="uid://bmyngas8g5ykg" path="res://audio/sfx/torch.wav" id="3_5srnk"]
+[ext_resource type="Script" path="res://game/flickering_light.gd" id="3_aqerk"]
+[ext_resource type="PackedScene" uid="uid://craogubux1l2n" path="res://meshes/torch.tscn" id="3_yush3"]
+
+[sub_resource type="Animation" id="Animation_s7760"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshHolder/Torch:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.3, -0.5, -0.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshHolder/Torch:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1uji5"]
+resource_name = "use_item"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshHolder/Torch:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.3, -0.5, -0.35), Vector3(0.42, -0.45, -0.28), Vector3(0, -0.18, -0.52), Vector3(0, -0.18, -0.52), Vector3(0.3, -0.5, -0.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshHolder/Torch:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.261799, 0.261799, 0), Vector3(-1.0472, 0.872665, -0.872665), Vector3(-1.0472, 0.872665, -0.872665), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"consume_energy"
+}, {
+"args": [],
+"method": &"play_swoosh_audio"
+}, {
+"args": [],
+"method": &"check_hit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehxmb"]
+_data = {
+"RESET": SubResource("Animation_s7760"),
+"use_item": SubResource("Animation_1uji5")
+}
+
+[sub_resource type="Gradient" id="Gradient_pdnfr"]
+offsets = PackedFloat32Array(0, 0.404624, 1)
+colors = PackedColorArray(0.827451, 0.619608, 0, 0.666667, 0.91169, 0.136983, 0, 1, 0.835294, 0.294118, 0, 0.666667)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v2pmf"]
+gradient = SubResource("Gradient_pdnfr")
+
+[sub_resource type="Curve" id="Curve_0f1b0"]
+_data = [Vector2(0, 0.27033), 0.0, 0.0, 0, 0, Vector2(0.242788, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.454945), -1.9737, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_slh4a"]
+curve = SubResource("Curve_0f1b0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7psm2"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 0.05
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 1.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 1, 0)
+scale_curve = SubResource("CurveTexture_slh4a")
+color_ramp = SubResource("GradientTexture1D_v2pmf")
+turbulence_enabled = true
+turbulence_noise_speed_random = 2.0
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.06
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3th4c"]
+load_path = "res://.godot/imported/circle32.png-5c6c91190cf986c3497eaba538100b92.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2v4b1"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_3th4c")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_112kl"]
+material = SubResource("StandardMaterial3D_2v4b1")
+size = Vector2(0.05, 0.05)
+
+[node name="EquippableTorch" instance=ExtResource("1_jjsnu")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_ehxmb")
+}
+
+[node name="Torch" parent="MeshHolder" index="0" instance=ExtResource("3_yush3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.5, -0.35)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshHolder/Torch" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.600542, 0)
+layers = 3
+light_color = Color(1, 0.796078, 0.443137, 1)
+light_energy = 1.03951
+light_size = 0.3
+script = ExtResource("3_aqerk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="MeshHolder/Torch" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505351, 0)
+layers = 2
+amount = 32
+lifetime = 0.5
+visibility_aabb = AABB(-0.725855, -1.17366, -0.63396, 1.45171, 2.34732, 1.26792)
+process_material = SubResource("ParticleProcessMaterial_7psm2")
+draw_pass_1 = SubResource("QuadMesh_112kl")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshHolder/Torch" index="2"]
+stream = ExtResource("3_5srnk")
+unit_size = 3.0
+autoplay = true
+bus = &"SFX"

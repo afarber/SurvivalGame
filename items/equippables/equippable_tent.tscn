@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwdc4fovhidic"]
+[gd_scene load_steps=6 format=3 uid="uid://2pa164yxicvx"]
 
-[ext_resource type="PackedScene" uid="uid://dc4yc4blv0jo7" path="res://items/equippables/equippable_constructable_template.tscn" id="1_o5bov"]
-[ext_resource type="PackedScene" uid="uid://bao26atoj8wut" path="res://meshes/tent.tscn" id="2_1rsn5"]
+[ext_resource type="PackedScene" uid="uid://dd02653n1jysq" path="res://items/equippables/equippable_constructable_template.tscn" id="1_uy6gw"]
+[ext_resource type="PackedScene" uid="uid://kaxfsetth143" path="res://meshes/tent.tscn" id="2_wgmhn"]
 
-[sub_resource type="Animation" id="Animation_4sjbl"]
+[sub_resource type="Animation" id="Animation_c3k5s"]
 resource_name = "use_item"
 length = 0.3
 tracks/0/type = "value"
@@ -28,7 +28,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(3.48787e-16, 2.18166, 3.48787e-16), Vector3(0.314159, 2.26893, -0.959931), Vector3(3.48787e-16, 2.18166, 3.48787e-16)]
+"values": [Vector3(0, 2.18166, 0), Vector3(0.314159, 2.26893, -0.959931), Vector3(0, 2.18166, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -48,7 +48,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_l5tq2"]
+[sub_resource type="Animation" id="Animation_mjdq7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -72,21 +72,24 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(3.48787e-16, 2.18166, 3.48787e-16)]
+"values": [Vector3(0, 2.18166, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ckq8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4cgc"]
 _data = {
-"RESET": SubResource("Animation_l5tq2"),
-"use_item": SubResource("Animation_4sjbl")
+"RESET": SubResource("Animation_mjdq7"),
+"use_item": SubResource("Animation_c3k5s")
 }
 
-[node name="EquippableTent" instance=ExtResource("1_o5bov")]
+[node name="EquippableTent" instance=ExtResource("1_uy6gw")]
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_6ckq8")
+"": SubResource("AnimationLibrary_h4cgc")
 }
 
-[node name="Tent" parent="MeshHolder" index="0" instance=ExtResource("2_1rsn5")]
-transform = Transform3D(-0.0573576, 4.85765e-17, 0.0819152, 3.48787e-17, 0.1, -3.48787e-17, -0.0819152, 8.56541e-18, -0.0573576, 0.3, -0.25, -0.35)
+[node name="Tent" parent="MeshHolder" index="0" instance=ExtResource("2_wgmhn")]
+transform = Transform3D(-0.0573576, 0, 0.0819152, 0, 0.1, 0, -0.0819152, 0, -0.0573576, 0.3, -0.25, -0.35)
+
+[connection signal="area_entered" from="ConstructableArea" to="." method="_on_constructable_area_body_entered"]
+[connection signal="area_exited" from="ConstructableArea" to="." method="_on_constructable_area_body_exited"]

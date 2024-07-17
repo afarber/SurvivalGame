@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://jdgmny405q2y"]
+
+[ext_resource type="Script" path="res://stages/credits/credits_stage.gd" id="1_mn0wb"]
+[ext_resource type="PackedScene" uid="uid://bx6mp6l5hcxop" path="res://meshes/water.tscn" id="2_dax2y"]
+[ext_resource type="PackedScene" uid="uid://bkjiq280m8mmk" path="res://meshes/raft.tscn" id="3_7d3eb"]
+[ext_resource type="Script" path="res://game/shaking_camera.gd" id="4_qyudb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n06bi"]
+sky_top_color = Color(0.32549, 0.878431, 1, 1)
+sky_horizon_color = Color(0.32549, 0.878431, 1, 1)
+ground_bottom_color = Color(0.32549, 0.878431, 1, 1)
+ground_horizon_color = Color(0.32549, 0.878431, 1, 1)
+
+[sub_resource type="Sky" id="Sky_vpmf7"]
+sky_material = SubResource("ProceduralSkyMaterial_n06bi")
+
+[sub_resource type="Environment" id="Environment_x367g"]
+background_mode = 2
+sky = SubResource("Sky_vpmf7")
+ambient_light_color = Color(0.32549, 0.878431, 1, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+
+[sub_resource type="Animation" id="Animation_jba43"]
+resource_name = "credits_animation"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5, 6, 9, 10, 13, 14, 17, 18, 21, 22, 25, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5, 10, 13, 18, 21, 26),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Godot course by Eerik Hirvonen", "Godot course by Eerik Hirvonen", "Audio by Zapsplat", "Audio by Zapsplat", "Animals by Quaternius", "Animals by Quaternius"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(29.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"exit_to_menu"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfw6i"]
+_data = {
+"credits_animation": SubResource("Animation_jba43")
+}
+
+[node name="CreditsStage" type="Node"]
+script = ExtResource("1_mn0wb")
+music_to_play = 2
+
+[node name="Water" parent="." instance=ExtResource("2_dax2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Raft" parent="." instance=ExtResource("3_7d3eb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188744, 0)
+
+[node name="CameraHolder" type="Node3D" parent="Raft"]
+transform = Transform3D(0.97437, 0, 0.224951, 0, 1, 0, -0.224951, 0, 0.97437, 0.7, 0.7, -0.2)
+
+[node name="ShakingCamera" type="Camera3D" parent="Raft/CameraHolder"]
+script = ExtResource("4_qyudb")
+noise_speed = 4
+noise_multiplier = 0.15
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.743148, 0.669127, 0, -0.669127, 0.743148, 0, 0, 0)
+light_color = Color(0.996078, 1, 0.729412, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x367g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hfw6i")
+}
+autoplay = "credits_animation"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -156.0
+offset_right = 59.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Animals by Quaternius"
+horizontal_alignment = 1
+vertical_alignment = 1

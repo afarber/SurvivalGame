@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7vqna0dgfun"]
+
+[ext_resource type="PackedScene" uid="uid://dd02653n1jysq" path="res://items/equippables/equippable_constructable_template.tscn" id="1_acxg8"]
+[ext_resource type="PackedScene" uid="uid://bkjiq280m8mmk" path="res://meshes/raft.tscn" id="3_6oxme"]
+
+[sub_resource type="Animation" id="Animation_mjdq7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshHolder/Raft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.3, -0.25, -0.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshHolder/Raft:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.18166, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c3k5s"]
+resource_name = "use_item"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshHolder/Raft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.3, -0.25, -0.35), Vector3(0.16, -0.5, -0.4), Vector3(0.3, -0.25, -0.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshHolder/Raft:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.18166, 0), Vector3(0.314159, 2.26893, -0.959931), Vector3(0, 2.18166, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"try_to_construct"
+}, {
+"args": [],
+"method": &"destroy_self"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4cgc"]
+_data = {
+"RESET": SubResource("Animation_mjdq7"),
+"use_item": SubResource("Animation_c3k5s")
+}
+
+[node name="EquippableRaft" instance=ExtResource("1_acxg8")]
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_h4cgc")
+}
+
+[node name="Raft" parent="MeshHolder" index="0" instance=ExtResource("3_6oxme")]
+transform = Transform3D(-0.0401503, 0, 0.0573407, 0, 0.07, 0, -0.0573407, 0, -0.0401503, 0.3, -0.25, -0.35)
+
+[node name="ItemPlaceRay" parent="." index="2"]
+target_position = Vector3(0, 0, -8)
+
+[node name="ConstructableArea" parent="." index="3"]
+collision_mask = 127
+
+[connection signal="area_entered" from="ConstructableArea" to="." method="_on_constructable_area_body_entered"]
+[connection signal="area_exited" from="ConstructableArea" to="." method="_on_constructable_area_body_exited"]

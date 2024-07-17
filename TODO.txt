@@ -6,11 +6,15 @@
 
 - When having an Axe equipped and then dragging it from hotbar to inventory slot - the Axe should disappear from the hand (i.e. not be displayed as equipped and be visible at the right side of the screen)
 
-- Use Proton Scatter: https://youtu.be/OoVAtGHEgjA
-
 - Use Terrain3D plugin for terrain and (!) path navigation
 
 - Use Spatial Gardener plugin for foliage and MultiMeshInstance3D
 
 - Use DynamicZone3D for loading rocks/structures from files
+
+- Remove the Cooking button and start cooking automatically
+
+Done:
+
+- Use Proton Scatter: https://youtu.be/OoVAtGHEgjA
 

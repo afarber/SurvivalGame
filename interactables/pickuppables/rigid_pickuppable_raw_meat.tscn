@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnsq2vh61hqrh"]
+
+[ext_resource type="PackedScene" uid="uid://bk0yn8bkq1ca5" path="res://interactables/pickuppables/rigid_pickuppable_template.tscn" id="1_5r2xe"]
+[ext_resource type="PackedScene" uid="uid://dhb5db7ge8tbm" path="res://meshes/raw_meat.tscn" id="2_xs0sj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u0q6s"]
+radius = 0.102276
+height = 0.487338
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6jrek"]
+points = PackedVector3Array(-0.00322181, 0.133422, 0.11462, 0.0682992, -0.0311191, 0.0394067, 0.0932611, 0.128878, 0.0538189, 0.0890507, 0.222246, 0.0513843, -0.00534582, 0.224159, 0.0871867, -0.0944229, 0.224112, 0.047015, -0.0987649, 0.138301, 0.060536, -0.0396872, -0.239905, 0.0171905, 1.12057e-05, -0.0502041, 0.0711223, 0.0387322, -0.23847, 0.0189947, 0.0862876, 0.15906, -0.0407847, 0.0399164, -0.238566, -0.0172425, 0.0668519, -0.0403985, -0.0386109, 0.0837876, 0.221242, -0.0315026, 0.0309504, 0.237887, 0.0178861, 0.00378932, 0.237887, 0.0335809, -0.0271499, 0.237218, 0.0156688, -0.0271499, 0.237218, -0.0156991, -0.0913778, 0.223538, -0.0427194, -0.0917914, 0.142463, -0.0498494, -0.0668483, -0.0403985, -0.0386109, -0.0395932, -0.238566, -0.0162643, -0.01309, -0.250763, 0.0197121, 0.00901478, -0.247797, 0.0204077, 0.0103681, -0.247941, -0.0205249, -0.00254513, 0.14275, -0.107455, 0.00581936, 0.220572, -0.0933471, 1.12057e-05, -0.0403985, -0.0772175, 0.0271723, 0.237218, -0.0156991, 1.12057e-05, 0.237218, -0.0313721, -0.012996, -0.249185, -0.0195467)
+
+[node name="RigidPickuppableRawMeat" instance=ExtResource("1_5r2xe")]
+collision_layer = 32
+
+[node name="Pickuppable" parent="." index="0"]
+item_key = 8
+prompt = "Pickup raw meat"
+
+[node name="CollisionShape3D" parent="Pickuppable" index="0"]
+shape = SubResource("CapsuleShape3D_u0q6s")
+
+[node name="RawMeat" parent="." index="1" instance=ExtResource("2_xs0sj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+shape = SubResource("ConvexPolygonShape3D_6jrek")

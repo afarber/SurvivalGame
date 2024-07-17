@@ -1,26 +1,26 @@
-[gd_resource type="Resource" script_class="CraftingBlueprintResource" load_steps=6 format=3 uid="uid://cwo3ripq0v7ic"]
+[gd_resource type="Resource" script_class="CraftingBlueprintResource" load_steps=6 format=3 uid="uid://cq1ti0spj6sye"]
 
-[ext_resource type="Script" path="res://resources/crafting_blueprints/blueprint_cost_data.gd" id="1_i81jx"]
-[ext_resource type="Script" path="res://resources/crafting_blueprints/crafting_blueprint_resource.gd" id="2_gn600"]
+[ext_resource type="Script" path="res://resources/crafting_blueprints/crafting_blueprint_cost_data.gd" id="1_vlh56"]
+[ext_resource type="Script" path="res://resources/crafting_blueprints/crafting_blueprint.gd" id="2_s1rqr"]
 
-[sub_resource type="Resource" id="Resource_2vsy6"]
-script = ExtResource("1_i81jx")
+[sub_resource type="Resource" id="Resource_iqbxb"]
+script = ExtResource("1_vlh56")
 item_key = 0
 amount = 1
 
-[sub_resource type="Resource" id="Resource_3ualj"]
-script = ExtResource("1_i81jx")
+[sub_resource type="Resource" id="Resource_tdcck"]
+script = ExtResource("1_vlh56")
 item_key = 1
 amount = 1
 
-[sub_resource type="Resource" id="Resource_vv8na"]
-script = ExtResource("1_i81jx")
+[sub_resource type="Resource" id="Resource_vqy1c"]
+script = ExtResource("1_vlh56")
 item_key = 14
 amount = 1
 
 [resource]
-script = ExtResource("2_gn600")
+script = ExtResource("2_s1rqr")
 item_key = 11
-costs = Array[ExtResource("1_i81jx")]([SubResource("Resource_2vsy6"), SubResource("Resource_3ualj"), SubResource("Resource_vv8na")])
+costs = Array[ExtResource("1_vlh56")]([SubResource("Resource_iqbxb"), SubResource("Resource_tdcck"), SubResource("Resource_vqy1c")])
 needs_multitool = false
 needs_tinderbox = false

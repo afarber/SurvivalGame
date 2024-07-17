@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dl0m2kk356e6i"]
+[gd_scene format=3 uid="uid://dhgrif8sayl05"]
 
 [node name="ConstructableTemplate" type="StaticBody3D"]
 collision_layer = 64

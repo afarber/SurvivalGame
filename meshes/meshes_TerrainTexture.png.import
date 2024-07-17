@@ -2,15 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7sd0dpahbyir"
+uid="uid://t22ee2b5qhee"
 path.s3tc="res://.godot/imported/meshes_TerrainTexture.png-da783786eb1f2a2ff40ae72578a99dd8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "c3346f47e628e2baa69f5ae572145ac3"
-}
+generator_parameters={}
 
 [deps]
 

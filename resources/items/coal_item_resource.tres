@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cb4dcepcfg8ov"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ck352m70epipp"]
 
-[ext_resource type="Texture2D" uid="uid://dub7bhgw8n4gb" path="res://textures/item_icons/coal.png" id="1_utupy"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_e6e1f"]
+[ext_resource type="Texture2D" uid="uid://chgf2pbhddik4" path="res://textures/item_icons/coal.png" id="1_mxx0b"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_sk8fb"]
 
 [resource]
-script = ExtResource("2_e6e1f")
+script = ExtResource("2_sk8fb")
 item_key = 6
 display_name = "Coal"
-icon = ExtResource("1_utupy")
-description = "A coal piece"
-is_equipable = false
+icon = ExtResource("1_mxx0b")
+description = "Just a lump of coal."
+is_equippable = false

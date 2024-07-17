@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cy5u3gasnerpp"]
+
+[ext_resource type="Texture2D" uid="uid://kladq6e7j176" path="res://textures/item_icons/tinderbox.png" id="1_fis6i"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_1thuj"]
+
+[resource]
+script = ExtResource("2_1thuj")
+item_key = 15
+display_name = "Tinderbox"
+icon = ExtResource("1_fis6i")
+description = "You can start a fire with this."
+is_equippable = false

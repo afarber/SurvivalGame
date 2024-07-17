@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccnqpp7movpjs"]
+[gd_scene load_steps=6 format=3 uid="uid://cpa1jv2ke0s03"]
 
-[ext_resource type="Texture2D" uid="uid://djfkixjmm1vve" path="res://textures/circle32.png" id="1_j14do"]
-[ext_resource type="PackedScene" uid="uid://44dh76xdsxpd" path="res://ui/custom_nodes/hotbar_slot.tscn" id="2_51vag"]
-[ext_resource type="Script" path="res://ui/hud/hotbar_ui.gd" id="2_ht4xi"]
-[ext_resource type="Script" path="res://ui/hud/player_stats_container.gd" id="4_1e41u"]
-[ext_resource type="Texture2D" uid="uid://cy3r2hnkrbihq" path="res://textures/square32.png" id="4_7e2mv"]
+[ext_resource type="Texture2D" uid="uid://p4440xbx3wxh" path="res://textures/circle32.png" id="1_l2ylg"]
+[ext_resource type="PackedScene" uid="uid://hmyyq5o611fp" path="res://ui/custom_nodes/hotbar_slot.tscn" id="2_1a3wd"]
+[ext_resource type="Script" path="res://ui/hud/hotbar_ui.gd" id="2_3xlt5"]
+[ext_resource type="Script" path="res://ui/hud/player_stats_container.gd" id="4_eoi56"]
+[ext_resource type="Texture2D" uid="uid://dte26mhleojvf" path="res://textures/square32.png" id="4_iu14x"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -13,8 +13,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Crosshair" type="TextureRect" parent="."]
+[node name="CrossHair" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(4, 4)
 layout_mode = 1
 anchors_preset = 8
@@ -28,7 +29,7 @@ offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_j14do")
+texture = ExtResource("1_l2ylg")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -38,43 +39,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HotbarSlotContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="Hotbar" type="HBoxContainer" parent="MarginContainer"]
+z_index = -1
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 32
 alignment = 1
-script = ExtResource("2_ht4xi")
+script = ExtResource("2_3xlt5")
 
-[node name="HotbarSlot" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot2" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot2" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot3" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot3" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot4" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot4" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot5" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot5" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot6" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot6" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot7" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot7" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot8" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot8" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
-[node name="HotbarSlot9" parent="MarginContainer/HotbarSlotContainer" instance=ExtResource("2_51vag")]
+[node name="HotbarSlot9" parent="MarginContainer/Hotbar" instance=ExtResource("2_1a3wd")]
 layout_mode = 2
 
 [node name="PlayerStatsContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -82,26 +85,24 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 16
-script = ExtResource("4_1e41u")
+script = ExtResource("4_eoi56")
 
 [node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/PlayerStatsContainer"]
 custom_minimum_size = Vector2(256, 32)
 layout_mode = 2
-step = 0.1
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("4_7e2mv")
-texture_progress = ExtResource("4_7e2mv")
+texture_under = ExtResource("4_iu14x")
+texture_progress = ExtResource("4_iu14x")
 tint_under = Color(0.203922, 0.203922, 0.203922, 1)
 tint_progress = Color(1, 0.2, 0.258824, 1)
 
 [node name="EnergyBar" type="TextureProgressBar" parent="MarginContainer/PlayerStatsContainer"]
 custom_minimum_size = Vector2(256, 32)
 layout_mode = 2
-step = 0.1
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("4_7e2mv")
-texture_progress = ExtResource("4_7e2mv")
+texture_under = ExtResource("4_iu14x")
+texture_progress = ExtResource("4_iu14x")
 tint_under = Color(0.203922, 0.203922, 0.203922, 1)
 tint_progress = Color(1, 0.760784, 0.360784, 1)

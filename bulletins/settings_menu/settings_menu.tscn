@@ -1,0 +1,156 @@
+[gd_scene load_steps=7 format=3 uid="uid://thhq207ndas3"]
+
+[ext_resource type="PackedScene" uid="uid://twh5kvwtljsj" path="res://bulletins/fading_bulletin/fading_bulletin_template.tscn" id="1_3afic"]
+[ext_resource type="Theme" uid="uid://b40t612ee1k4l" path="res://resources/default_ui_theme.tres" id="2_pqva3"]
+[ext_resource type="Texture2D" uid="uid://c5wsbosbt6wjr" path="res://textures/check_true.png" id="2_xkdte"]
+[ext_resource type="Script" path="res://bulletins/settings_menu/settings_menu.gd" id="3_cpjha"]
+[ext_resource type="Texture2D" uid="uid://2iotg6e4wxw5" path="res://textures/check_false.png" id="3_sct8q"]
+[ext_resource type="Script" path="res://ui/custom_nodes/ui_button.gd" id="6_v3lkh"]
+
+[node name="SettingsMenu" instance=ExtResource("1_3afic")]
+theme = ExtResource("2_pqva3")
+script = ExtResource("3_cpjha")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="SettingContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="SettingLabelContainer" type="VBoxContainer" parent="VBoxContainer/SettingContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer/SettingContainer/SettingLabelContainer" index="0"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Music volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SFXLabel" type="Label" parent="VBoxContainer/SettingContainer/SettingLabelContainer" index="1"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SFX volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ResScaleLabel" type="Label" parent="VBoxContainer/SettingContainer/SettingLabelContainer" index="2"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Resolution scale"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SSAALabel" type="Label" parent="VBoxContainer/SettingContainer/SettingLabelContainer" index="3"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Antialiasing"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FullscreenLabel" type="Label" parent="VBoxContainer/SettingContainer/SettingLabelContainer" index="4"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Fullscreen"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WidgetContainer" type="VBoxContainer" parent="VBoxContainer/SettingContainer" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="VBoxContainer/SettingContainer/WidgetContainer" index="0"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainer/SettingContainer/WidgetContainer/MusicVolumeContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 24)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="MusicVolumeLabel" type="Label" parent="VBoxContainer/SettingContainer/WidgetContainer/MusicVolumeContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "50"
+
+[node name="SFXVolumeContainer" type="HBoxContainer" parent="VBoxContainer/SettingContainer/WidgetContainer" index="1"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer/SettingContainer/WidgetContainer/SFXVolumeContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 24)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="SFXVolumeLabel" type="Label" parent="VBoxContainer/SettingContainer/WidgetContainer/SFXVolumeContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "50"
+
+[node name="ResolutionScaleContainer" type="HBoxContainer" parent="VBoxContainer/SettingContainer/WidgetContainer" index="2"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="ResolutionScaleSlider" type="HSlider" parent="VBoxContainer/SettingContainer/WidgetContainer/ResolutionScaleContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 24)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 0.5
+
+[node name="ResolutionScaleLabel" type="Label" parent="VBoxContainer/SettingContainer/WidgetContainer/ResolutionScaleContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "50"
+
+[node name="SSAACheckButton" type="CheckButton" parent="VBoxContainer/SettingContainer/WidgetContainer" index="3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/checked = ExtResource("2_xkdte")
+theme_override_icons/unchecked = ExtResource("3_sct8q")
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="VBoxContainer/SettingContainer/WidgetContainer" index="4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_icons/checked = ExtResource("2_xkdte")
+theme_override_icons/unchecked = ExtResource("3_sct8q")
+
+[node name="CloseButton" type="Button" parent="VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Apply and close"
+script = ExtResource("6_v3lkh")
+
+[connection signal="pressed" from="VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,19 +1,118 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv7bwufcguvhf"]
+[gd_scene load_steps=12 format=3 uid="uid://cxyrm16le8crr"]
 
-[ext_resource type="Script" path="res://game/managers/stage_controller.gd" id="1_ibihn"]
-[ext_resource type="PackedScene" uid="uid://ccnqpp7movpjs" path="res://ui/hud/hud.tscn" id="8_w77k2"]
-[ext_resource type="Script" path="res://game/managers/bulletin_controller.gd" id="9_gueei"]
+[ext_resource type="Script" path="res://game/managers/stage_controller.gd" id="1_pjwhi"]
+[ext_resource type="Script" path="res://game/managers/hud_controller.gd" id="3_6gv57"]
+[ext_resource type="Script" path="res://game/managers/music_controller.gd" id="4_o3ghp"]
+[ext_resource type="Script" path="res://game/managers/sfx_controller.gd" id="5_nico0"]
+[ext_resource type="Script" path="res://game/managers/game_fade_controller.gd" id="6_iljxs"]
+[ext_resource type="Script" path="res://game/managers/settings_controller.gd" id="8_nux32"]
+[ext_resource type="Script" path="res://game/managers/bulletin_controller.gd" id="9_g8ktk"]
+[ext_resource type="PackedScene" uid="uid://cpa1jv2ke0s03" path="res://ui/hud/hud.tscn" id="9_x41ec"]
+
+[sub_resource type="Animation" id="Animation_jjo07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_b10ci"]
+resource_name = "loading_animation"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LoadingLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wisqy"]
+_data = {
+"RESET": SubResource("Animation_jjo07"),
+"loading_animation": SubResource("Animation_b10ci")
+}
 
 [node name="MainGame" type="Node"]
+process_mode = 3
 
 [node name="StageController" type="Node" parent="."]
-script = ExtResource("1_ibihn")
+script = ExtResource("1_pjwhi")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="HUDController" type="Node" parent="UILayer"]
-
-[node name="HUD" parent="UILayer/HUDController" instance=ExtResource("8_w77k2")]
-
 [node name="BulletinController" type="Node" parent="UILayer"]
-script = ExtResource("9_gueei")
+script = ExtResource("9_g8ktk")
+
+[node name="HUDController" type="Node" parent="UILayer"]
+script = ExtResource("3_6gv57")
+
+[node name="HUD" parent="UILayer/HUDController" instance=ExtResource("9_x41ec")]
+
+[node name="MusicController" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+script = ExtResource("4_o3ghp")
+
+[node name="SFXController" type="AudioStreamPlayer" parent="."]
+script = ExtResource("5_nico0")
+
+[node name="FadingLayer" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="GameFadeController" type="ColorRect" parent="FadingLayer" node_paths=PackedStringArray("animation_player")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("6_iljxs")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="LoadingLabel" type="Label" parent="FadingLayer/GameFadeController"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadingLayer/GameFadeController"]
+libraries = {
+"": SubResource("AnimationLibrary_wisqy")
+}
+
+[node name="SettingsController" type="Node" parent="."]
+script = ExtResource("8_nux32")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3l4y64jrwy4"]
+
+[ext_resource type="Texture2D" uid="uid://p4440xbx3wxh" path="res://textures/circle32.png" id="1_1iqlk"]
+
+[sub_resource type="Gradient" id="Gradient_we80t"]
+colors = PackedColorArray(0.788235, 0.188235, 0.235294, 1, 0.788235, 0.188235, 0.235294, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rstxg"]
+gradient = SubResource("Gradient_we80t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5hyeh"]
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+color_ramp = SubResource("GradientTexture1D_rstxg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyfoo"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_1iqlk")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xost1"]
+material = SubResource("StandardMaterial3D_dyfoo")
+size = Vector2(0.05, 0.05)
+
+[node name="HitParticlesBlood" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_5hyeh")
+draw_pass_1 = SubResource("QuadMesh_xost1")

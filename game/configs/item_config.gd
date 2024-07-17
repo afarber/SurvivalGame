@@ -1,5 +1,6 @@
 class_name ItemConfig
 
+
 enum Keys {
 	# pickuppables
 	Stick,
@@ -12,7 +13,7 @@ enum Keys {
 	Flintstone,
 	RawMeat,
 	CookedMeat,
-
+	
 	# craftables
 	Axe,
 	Pickaxe,
@@ -25,19 +26,21 @@ enum Keys {
 	Raft
 }
 
-const CRAFTABLE_ITEM_KEYS: Array[Keys] = [
+
+const CRAFTABLE_ITEM_KEYS:Array[Keys] = [
 	Keys.Axe,
-	#Keys.Pickaxe,
-	#Keys.Campfire,
-	#Keys.Multitool,
+	Keys.Pickaxe,
+	Keys.Campfire,
+	Keys.Multitool,
 	Keys.Rope,
-	#Keys.Tinderbox,
-	#Keys.Torch,
-	#Keys.Tent,
-	#Keys.Raft
+	Keys.Tinderbox,
+	Keys.Torch,
+	Keys.Tent,
+	Keys.Raft
 ]
 
-const ITEM_RESOURCE_PATHS := {
+
+const ITEM_RESOURCES := {
 	Keys.Stick : "res://resources/items/stick_item_resource.tres",
 	Keys.Stone : "res://resources/items/stone_item_resource.tres",
 	Keys.Plant : "res://resources/items/plant_item_resource.tres",
@@ -63,9 +66,11 @@ const ITEM_RESOURCE_PATHS := {
 }
 
 static func get_item_resource(item_key:Keys) -> ItemResource:
-	return load(ITEM_RESOURCE_PATHS[item_key])
+	return load(ITEM_RESOURCES[item_key])
 
-const CRAFTING_BLUEPRINT_RESOURCE_PATHS := {
+
+
+const CRAFTING_BLUEPRINT_RESOURCES := {
 	Keys.Axe : "res://resources/crafting_blueprints/axe_blueprint.tres",
 	Keys.Rope : "res://resources/crafting_blueprints/rope_blueprint.tres",
 	Keys.Pickaxe : "res://resources/crafting_blueprints/pickaxe_blueprint.tres",
@@ -78,34 +83,43 @@ const CRAFTING_BLUEPRINT_RESOURCE_PATHS := {
 }
 
 static func get_crafting_blueprint_resource(item_key:Keys) -> CraftingBlueprintResource:
-	return load(CRAFTING_BLUEPRINT_RESOURCE_PATHS[item_key])
+	return load(CRAFTING_BLUEPRINT_RESOURCES[item_key])
 
-const EQUIPPABLE_ITEM_PATHS := {
+
+const EQUIPPABLE_ITEM_SCENES := {
 	Keys.Axe : "res://items/equippables/equippable_axe.tscn",
 	Keys.Pickaxe : "res://items/equippables/equippable_pickaxe.tscn",
 	Keys.Mushroom : "res://items/equippables/equippable_mushroom.tscn",
-	Keys.Campfire: "res://items/equippables/equippable_campfire.tscn",
-	Keys.Tent: "res://items/equippables/equippable_tent.tscn"
+	Keys.Tent : "res://items/equippables/equippable_tent.tscn",
+	Keys.Campfire : "res://items/equippables/equippable_campfire.tscn",
+	Keys.Fruit : "res://items/equippables/equippable_fruit.tscn",
+	Keys.CookedMeat : "res://items/equippables/equippable_cooked_meat.tscn",
+	Keys.Raft : "res://items/equippables/equippable_raft.tscn",
+	Keys.Torch : "res://items/equippables/equippable_torch.tscn"
 }
 
-static func get_equippable_item(item_key:Keys) -> PackedScene:
-	return load(EQUIPPABLE_ITEM_PATHS[item_key])
+static func get_equippable_item_scene(item_key:Keys) -> PackedScene:
+	return load(EQUIPPABLE_ITEM_SCENES[item_key]) 
 
-const PICKUPPABLE_ITEM_PATHS := {
-	Keys.Log: "res://items/interactables/rigid_pickupable_log.tscn",
-	Keys.Coal: "res://items/interactables/rigid_pickupable_coal.tscn",
-	Keys.RawMeat: "res://items/interactables/rigid_pickupable_raw_meat.tscn",
-	Keys.Flintstone : "res://items/interactables/pickupable_flintstone.tscn"
+
+
+const PICKUPPABLE_ITEM_SCENES := {
+	Keys.Log : "res://interactables/pickuppables/rigid_pickuppable_log.tscn",
+	Keys.Coal : "res://interactables/pickuppables/rigid_pickuppable_coal.tscn",
+	Keys.RawMeat : "res://interactables/pickuppables/rigid_pickuppable_raw_meat.tscn",
+	Keys.Flintstone : "res://interactables/pickuppables/rigid_pickuppable_flintstone.tscn"
 }
 
-static func get_pickuppable_item(item_key:Keys) -> PackedScene:
-	return load(PICKUPPABLE_ITEM_PATHS[item_key])
+static func get_pickuppable_item_scene(item_key:Keys) -> PackedScene:
+	return load(PICKUPPABLE_ITEM_SCENES[item_key])
 
 
-const CONSTRUCTABLE_ITEM_PATHS := {
-	Keys.Campfire: "res://objects/constructables/constructable_campfire.tscn",
-	Keys.Tent: "res://objects/constructables/constructable_tent.tscn"
+
+const CONSTRUCTABLE_SCENES := {
+	Keys.Tent : "res://objects/constructables/constructable_tent.tscn",
+	Keys.Campfire : "res://objects/constructables/constructable_campfire.tscn",
+	Keys.Raft : "res://objects/constructables/constructable_raft.tscn"
 }
 
 static func get_constructable_scene(item_key:Keys) -> PackedScene:
-	return load(CONSTRUCTABLE_ITEM_PATHS[item_key])
+	return load(CONSTRUCTABLE_SCENES[item_key])

@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dksvy5hma0xu0"]
+
+[ext_resource type="PackedScene" uid="uid://dhgrif8sayl05" path="res://objects/constructables/constructable_template.tscn" id="1_o2ibd"]
+[ext_resource type="PackedScene" uid="uid://bkjiq280m8mmk" path="res://meshes/raft.tscn" id="2_acwbi"]
+[ext_resource type="Script" path="res://interactables/interactable_raft.gd" id="3_engyj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcw2i"]
+size = Vector3(2.50153, 0.229828, 4.98944)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fe73d"]
+size = Vector3(2.06459, 0.0808945, 2.25731)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ivdp"]
+size = Vector3(2.96877, 1.74675, 0.2332)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajgfy"]
+size = Vector3(1.0522, 0.260948, 0.501091)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mq03b"]
+size = Vector3(0.450025, 0.260948, 0.434965)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cqxmj"]
+height = 2.82981
+radius = 0.0793013
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lt7pt"]
+size = Vector3(2.48584, 1.71442, 4.96741)
+
+[node name="ConstructableRaft" instance=ExtResource("1_o2ibd")]
+
+[node name="Raft" parent="." index="0" instance=ExtResource("2_acwbi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104065, 0.00337219, -0.0138855)
+shape = SubResource("BoxShape3D_gcw2i")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(0.539462, 0.84201, 0, -0.84201, 0.539462, 0, 0, 0, 1, 0.524931, 0.91192, 1.2709)
+shape = SubResource("BoxShape3D_fe73d")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(-0.538771, -0.842452, -8.74228e-08, -0.842452, 0.538771, 0, 4.71008e-08, 7.36495e-08, -1, -0.525, 0.912, 1.271)
+shape = SubResource("BoxShape3D_fe73d")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00229645, 1.93824, -0.769851)
+shape = SubResource("BoxShape3D_4ivdp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.373119, 0.244205, -1.80864)
+shape = SubResource("BoxShape3D_ajgfy")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(0.954423, 0, 0.298458, 0, 1, 0, -0.298458, 0, 0.954423, -0.543565, 0.244205, -0.212501)
+shape = SubResource("BoxShape3D_mq03b")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.382, -0.675)
+shape = SubResource("CylinderShape3D_cqxmj")
+
+[node name="InteractableRaft" type="Area3D" parent="." index="8"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_engyj")
+prompt = "Escape the island!"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableRaft" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00317383, 0.739594, 0.00177002)
+shape = SubResource("BoxShape3D_lt7pt")

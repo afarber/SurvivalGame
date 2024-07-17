@@ -1,37 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://c58jbhme1gwfg"]
+[gd_scene load_steps=10 format=3 uid="uid://bb4ajqrspiuc8"]
 
-[ext_resource type="Script" path="res://actors/player/player.gd" id="1_ff0ac"]
-[ext_resource type="Script" path="res://actors/player/main_camera.gd" id="2_idpls"]
-[ext_resource type="Script" path="res://actors/player/interaction_ray_cast.gd" id="2_vb3ph"]
-[ext_resource type="Script" path="res://game/managers/inventory_manager.gd" id="3_ck1kf"]
-[ext_resource type="Script" path="res://actors/player/equippable_item_holder.gd" id="3_efnku"]
-[ext_resource type="Script" path="res://game/managers/equiped_item_manager.gd" id="4_f5cq2"]
-[ext_resource type="Script" path="res://game/managers/player_stats_manager.gd" id="7_mnx76"]
+[ext_resource type="Script" path="res://actors/player/player.gd" id="1_u4shn"]
+[ext_resource type="Script" path="res://actors/player/interaction_ray_cast.gd" id="2_3wla4"]
+[ext_resource type="Script" path="res://actors/player/main_camera.gd" id="2_ofptj"]
+[ext_resource type="Script" path="res://actors/player/item_holder.gd" id="3_a5bbk"]
+[ext_resource type="Script" path="res://game/managers/inventory_manager.gd" id="3_qnmcm"]
+[ext_resource type="Script" path="res://game/managers/equipped_item_manager.gd" id="4_tgk6a"]
+[ext_resource type="Script" path="res://game/managers/player_stats_manager.gd" id="7_2amrl"]
+[ext_resource type="Script" path="res://game/managers/sleep_manager.gd" id="8_u11tx"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4lt5m"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1tkb2"]
 radius = 0.25
 height = 1.8
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
-collision_mask = 83
-script = ExtResource("1_ff0ac")
+collision_mask = 81
+script = ExtResource("1_u4shn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_4lt5m")
+shape = SubResource("CapsuleShape3D_1tkb2")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.7, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649716, 0)
 
 [node name="MainCamera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
-script = ExtResource("2_idpls")
+script = ExtResource("2_ofptj")
 
 [node name="InteractionRayCast" type="RayCast3D" parent="Head"]
-target_position = Vector3(2.08165e-12, 2.08165e-12, -2.2)
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
 collision_mask = 4
 collide_with_areas = true
-script = ExtResource("2_vb3ph")
+script = ExtResource("2_3wla4")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Head"]
 anchors_preset = 15
@@ -48,20 +50,27 @@ gui_disable_input = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="EquippableItemCamera" type="Camera3D" parent="Head/SubViewportContainer/SubViewport"]
-cull_mask = 1048574
-
-[node name="EquippableItemHolder" type="Node3D" parent="Head/SubViewportContainer/SubViewport/EquippableItemCamera"]
+[node name="EquippableCamera" type="Camera3D" parent="Head/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-script = ExtResource("3_efnku")
+cull_mask = 2
+
+[node name="ItemHolder" type="Node3D" parent="Head/SubViewportContainer/SubViewport/EquippableCamera"]
+unique_name_in_owner = true
+script = ExtResource("3_a5bbk")
 
 [node name="Managers" type="Node" parent="."]
 
 [node name="InventoryManager" type="Node" parent="Managers"]
-script = ExtResource("3_ck1kf")
+script = ExtResource("3_qnmcm")
 
-[node name="EquipedItemManager" type="Node" parent="Managers"]
-script = ExtResource("4_f5cq2")
+[node name="EquippedItemManager" type="Node" parent="Managers"]
+script = ExtResource("4_tgk6a")
 
 [node name="PlayerStatsManager" type="Node" parent="Managers"]
-script = ExtResource("7_mnx76")
+script = ExtResource("7_2amrl")
+
+[node name="SleepManager" type="Node" parent="Managers"]
+script = ExtResource("8_u11tx")
+
+[node name="FootstepAudioTimer" type="Timer" parent="."]
+one_shot = true

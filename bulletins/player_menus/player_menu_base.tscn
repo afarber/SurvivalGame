@@ -1,44 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://wrug1fa8nn3u"]
+[gd_scene load_steps=13 format=3 uid="uid://ft2mnrxg3awc"]
 
-[ext_resource type="Texture2D" uid="uid://b1ebctl7iq84j" path="res://textures/panelInset_beige.png" id="1_kwdm0"]
-[ext_resource type="Script" path="res://bulletins/player_menus/player_menu_base.gd" id="1_mj8m2"]
-[ext_resource type="Texture2D" uid="uid://crgxf64u1u8xv" path="res://textures/cross.png" id="2_0ief8"]
-[ext_resource type="PackedScene" uid="uid://cx13reh88ypo6" path="res://ui/custom_nodes/inventory_slot.tscn" id="2_y4hma"]
-[ext_resource type="Texture2D" uid="uid://ci8mr30yoa35j" path="res://textures/panelInset_brown.png" id="3_gpggs"]
+[ext_resource type="PackedScene" uid="uid://h6m2cttljfi8" path="res://bulletins/bulletin_template.tscn" id="1_0m8rg"]
+[ext_resource type="Script" path="res://bulletins/player_menus/player_menu_base.gd" id="2_5xscr"]
+[ext_resource type="Texture2D" uid="uid://tggb27oky30p" path="res://textures/panelInset_beige.png" id="2_lqv4p"]
+[ext_resource type="PackedScene" uid="uid://b7fx3qv0bkluk" path="res://ui/custom_nodes/inventory_slot.tscn" id="3_0fbb7"]
+[ext_resource type="Texture2D" uid="uid://dksddk1e3numc" path="res://textures/cross.png" id="3_2sb38"]
+[ext_resource type="Texture2D" uid="uid://b3lewqpquxqi4" path="res://textures/panelInset_brown.png" id="4_gva50"]
+[ext_resource type="Script" path="res://ui/custom_nodes/scrap_item_slot.gd" id="6_3cg4o"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkrg6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvdiu"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvy1s"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vflo1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5juv6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yn1bf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0gdt1"]
-
-[sub_resource type="InputEventKey" id="InputEventKey_r82so"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="InputEventKey" id="InputEventKey_ui0s4"]
+[sub_resource type="InputEventKey" id="InputEventKey_0kgb4"]
 device = -1
 keycode = 4194306
 
-[sub_resource type="Shortcut" id="Shortcut_kprye"]
-events = [SubResource("InputEventKey_r82so"), SubResource("InputEventKey_ui0s4")]
+[sub_resource type="InputEventKey" id="InputEventKey_n13rn"]
+device = -1
+keycode = 4194305
 
-[node name="PlayerMenuBase" type="Control"]
-z_index = -1
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="Shortcut" id="Shortcut_dqk40"]
+events = [SubResource("InputEventKey_0kgb4"), SubResource("InputEventKey_n13rn")]
+
+[node name="PlayerMenuBase" instance=ExtResource("1_0m8rg")]
 mouse_filter = 2
-script = ExtResource("1_mj8m2")
+script = ExtResource("2_5xscr")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,26 +40,27 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 160
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 32
 split_offset = 560
 dragger_visibility = 1
 
-[node name="InventoryNinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VSplitContainer"]
+[node name="InventoryRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VSplitContainer" index="0"]
 layout_mode = 2
-texture = ExtResource("1_kwdm0")
+mouse_filter = 0
+texture = ExtResource("2_lqv4p")
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 48
 patch_margin_bottom = 32
 
-[node name="InventoryGridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect"]
+[node name="InventorySlotContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect" index="0"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -88,99 +78,99 @@ theme_override_constants/h_separation = 24
 theme_override_constants/v_separation = 24
 columns = 7
 
-[node name="InventorySlot" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="0" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot2" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot2" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="1" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot3" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot3" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="2" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot4" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot4" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="3" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot5" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot5" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="4" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot6" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot6" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="5" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot7" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot7" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="6" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot8" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot8" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="7" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot9" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot9" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="8" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot10" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot10" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="9" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot11" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot11" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="10" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot12" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot12" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="11" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot13" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot13" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="12" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot14" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot14" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="13" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot15" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot15" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="14" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot16" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot16" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="15" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot17" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot17" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="16" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot18" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot18" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="17" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot19" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot19" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="18" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot20" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot20" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="19" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot21" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot21" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="20" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot22" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot22" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="21" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot23" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot23" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="22" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot24" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot24" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="23" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot25" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot25" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="24" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot26" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot26" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="25" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot27" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot27" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="26" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="InventorySlot28" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryNinePatchRect/InventoryGridContainer" instance=ExtResource("2_y4hma")]
+[node name="InventorySlot28" parent="MarginContainer/HBoxContainer/VSplitContainer/InventoryRect/InventorySlotContainer" index="27" instance=ExtResource("3_0fbb7")]
 layout_mode = 2
 
-[node name="DescriptionNinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VSplitContainer"]
+[node name="ItemInfoRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VSplitContainer" index="1"]
 layout_mode = 2
-texture = ExtResource("1_kwdm0")
+texture = ExtResource("2_lqv4p")
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 48
 patch_margin_bottom = 32
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/DescriptionNinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/ItemInfoRect" index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -192,52 +182,79 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/DescriptionNinePatchRect/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/ItemInfoRect/MarginContainer" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="ItemDescriptionLabel" type="Label" parent="MarginContainer/HBoxContainer/VSplitContainer/DescriptionNinePatchRect/MarginContainer/HBoxContainer"]
+[node name="ItemInfoLabel" type="Label" parent="MarginContainer/HBoxContainer/VSplitContainer/ItemInfoRect/MarginContainer/HBoxContainer" index="0"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(480, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 5
 autowrap_mode = 2
 
-[node name="ItemExtraInfoLabel" type="Label" parent="MarginContainer/HBoxContainer/VSplitContainer/DescriptionNinePatchRect/MarginContainer/HBoxContainer"]
+[node name="ExtraInfoLabel" type="Label" parent="MarginContainer/HBoxContainer/VSplitContainer/ItemInfoRect/MarginContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 5
+autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="ScrapSlot" type="TextureRect" parent="MarginContainer/HBoxContainer/VSplitContainer/ItemInfoRect/MarginContainer/HBoxContainer" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("4_gva50")
+expand_mode = 1
+script = ExtResource("6_3cg4o")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VSplitContainer/ItemInfoRect/MarginContainer/HBoxContainer/ScrapSlot" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VSplitContainer/ItemInfoRect/MarginContainer/HBoxContainer/ScrapSlot/MarginContainer" index="0"]
+modulate = Color(0.815686, 0.25098, 0.137255, 1)
+layout_mode = 2
+texture = ExtResource("3_2sb38")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 32
 
-[node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rkrg6")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_mvy1s")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_5juv6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_yn1bf")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0gdt1")
-shortcut = SubResource("Shortcut_kprye")
-icon = ExtResource("2_0ief8")
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wvdiu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vflo1")
+shortcut = SubResource("Shortcut_dqk40")
+icon = ExtResource("3_2sb38")
+icon_alignment = 1
 expand_icon = true
 
-[node name="UtilityNinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_kwdm0")
+texture = ExtResource("2_lqv4p")
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 48
 patch_margin_bottom = 32
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect" index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -249,22 +266,21 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/MarginContainer" index="0"]
 layout_mode = 2
-theme_override_constants/separation = 32
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer" index="0"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
-texture = ExtResource("3_gpggs")
+size_flags_vertical = 4
+texture = ExtResource("4_gva50")
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 48
 patch_margin_bottom = 32
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/UtilityNinePatchRect/MarginContainer/VBoxContainer/NinePatchRect"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/NinePatchRect" index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -272,7 +288,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Placeholder"
+text = "placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 

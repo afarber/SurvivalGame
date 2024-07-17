@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://w58m5jujb14s"]
+[gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://bnww6db1gt3v8"]
 
-[ext_resource type="Script" path="res://resources/items/weapon_item_resource.gd" id="1_hvhdl"]
-[ext_resource type="Texture2D" uid="uid://c4w6xr0ui3g8u" path="res://textures/item_icons/axe.png" id="1_ue0rp"]
+[ext_resource type="Script" path="res://resources/items/weapon_item_resource.gd" id="1_h2f67"]
+[ext_resource type="Texture2D" uid="uid://d0haf05pqea3r" path="res://textures/item_icons/axe.png" id="1_ht1wt"]
 
 [resource]
-script = ExtResource("1_hvhdl")
-damage = 20.0
+script = ExtResource("1_h2f67")
+damage = 20
 range = 1.5
+energy_change_per_use = -0.5
 item_key = 10
 display_name = "Axe"
-icon = ExtResource("1_ue0rp")
-description = "A sharp axe"
-is_equipable = true
+icon = ExtResource("1_ht1wt")
+description = "A DIY axe. Useful for chopping trees."
+is_equippable = true

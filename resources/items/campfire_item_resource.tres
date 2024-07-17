@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ms4t68caj331"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://4uokint61d0q"]
 
-[ext_resource type="Texture2D" uid="uid://3n37htb3lxsg" path="res://textures/item_icons/campfire.png" id="1_rls7h"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_61ded"]
+[ext_resource type="Texture2D" uid="uid://fsngb3h0tv16" path="res://textures/item_icons/campfire.png" id="1_vsayn"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_gsxlc"]
 
 [resource]
-script = ExtResource("2_61ded")
+script = ExtResource("2_gsxlc")
 item_key = 12
 display_name = "Campfire"
-icon = ExtResource("1_rls7h")
-description = "A warming campfire"
-is_equipable = true
+icon = ExtResource("1_vsayn")
+description = "Keeps you warm. You can cook food with it also."
+is_equippable = true

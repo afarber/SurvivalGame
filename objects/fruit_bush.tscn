@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://brd7pnbobpv5o"]
+
+[ext_resource type="PackedScene" uid="uid://5luv825ofaa4" path="res://meshes/fruit_bush.tscn" id="1_t3wsc"]
+[ext_resource type="PackedScene" uid="uid://c4oj4x6ok8xgs" path="res://interactables/pickuppables/pickuppable_fruit.tscn" id="2_o41s0"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ps0je"]
+points = PackedVector3Array(-0.000799, -0.134658, -0.0204297, -0.260942, -0.046459, -0.216815, 0.0468474, -0.0510139, -0.342416, 0.303994, -0.0837262, -0.0476111, 0.146171, -0.0892127, 0.298045, -0.247093, -0.0607447, 0.156589, -0.472096, 0.133873, -0.016579, -0.410496, 0.161202, -0.301417, -0.192108, 0.133976, -0.467676, 0.0221457, 0.171347, -0.547635, 0.25459, 0.0815952, -0.440042, 0.505742, 0.0965021, -0.0718477, 0.488068, 0.0247627, 0.262596, 0.214178, 0.0900839, 0.484577, -0.0848263, 0.10292, 0.473252, -0.363987, 0.197331, 0.292722, -0.505686, 0.403025, -0.14116, -0.448221, 0.445571, 0.221145, -0.350241, 0.403439, -0.413653, -0.115109, 0.420623, -0.57357, 0.138833, 0.399712, -0.586255, 0.41882, 0.360892, -0.307759, 0.550184, 0.303749, 0.151719, 0.375205, 0.275178, 0.439502, 0.09191, 0.31348, 0.570765, -0.190868, 0.417725, 0.504057, -0.420005, 0.638119, 0.0722135, -0.39675, 0.668243, -0.222138, -0.238101, 0.679527, 0.385139, -0.149526, 0.667001, -0.435851, 0.105346, 0.735634, -0.466997, 0.326732, 0.691742, -0.367672, 0.380373, 0.522901, 0.337345, 0.414273, 0.629009, 0.0316679, 0.186273, 0.564723, 0.453432, -0.0194028, 0.592052, 0.502698, -0.221254, 0.838947, 0.0666639, -0.0674627, 0.872902, -0.253283, -0.0318054, 0.823523, 0.316959, 0.217899, 0.892053, -0.157016, 0.213765, 0.790604, 0.251271, 0.0206987, 0.922799, 0.0448056)
+
+[node name="FruitBush" type="StaticBody3D"]
+collision_layer = 64
+collision_mask = 0
+
+[node name="FruitBush" parent="." instance=ExtResource("1_t3wsc")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_ps0je")
+
+[node name="Fruits" type="Node3D" parent="."]
+
+[node name="PickuppableFruit" parent="Fruits" instance=ExtResource("2_o41s0")]
+transform = Transform3D(0.870931, -0.491405, 0, 0.491405, 0.870931, 0, 0, 0, 1, 0.377867, 0.667085, 0)
+
+[node name="PickuppableFruit2" parent="Fruits" instance=ExtResource("2_o41s0")]
+transform = Transform3D(0.999887, -0.0150267, 0, 0.0141645, 0.942518, -0.333856, 0.00501676, 0.333819, 0.942624, -0.0695003, 0.667085, -0.431265)
+
+[node name="PickuppableFruit3" parent="Fruits" instance=ExtResource("2_o41s0")]
+transform = Transform3D(0.724509, 0.689266, 0, -0.689266, 0.724509, 0, 0, 0, 1, -0.341251, 0.696635, 0.0154806)
+
+[node name="PickuppableFruit4" parent="Fruits" instance=ExtResource("2_o41s0")]
+transform = Transform3D(0.97034, -0.18976, 0.149771, 0.114513, 0.906428, 0.40654, -0.212901, -0.377331, 0.901274, 0.179853, 0.667085, 0.332102)

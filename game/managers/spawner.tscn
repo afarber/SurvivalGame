@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dudvlb3olb81r"]
+[gd_scene load_steps=2 format=3 uid="uid://ck37injirfudv"]
 
-[ext_resource type="Script" path="res://game/managers/spawner.gd" id="1_gdspg"]
+[ext_resource type="Script" path="res://game/managers/spawner.gd" id="1_ph35k"]
 
 [node name="Spawner" type="Node3D"]
-script = ExtResource("1_gdspg")
+script = ExtResource("1_ph35k")
 
-[node name="Items" type="Node3D" parent="."]
+[node name="ObjectHolder" type="Node3D" parent="."]
+
+[node name="ConstructableHolder" type="Node3D" parent="."]

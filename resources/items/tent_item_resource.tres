@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cl7sub20bdegv"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://yxlsc4y5g0j1"]
 
-[ext_resource type="Texture2D" uid="uid://ylqm0rrgi1wb" path="res://textures/item_icons/tent.png" id="1_banm8"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_rq8n2"]
+[ext_resource type="Texture2D" uid="uid://bogx4gybtuaxf" path="res://textures/item_icons/tent.png" id="1_er7c2"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_ku2pc"]
 
 [resource]
-script = ExtResource("2_rq8n2")
+script = ExtResource("2_ku2pc")
 item_key = 17
 display_name = "Tent"
-icon = ExtResource("1_banm8")
-description = "A small tent"
-is_equipable = true
+icon = ExtResource("1_er7c2")
+description = "Keeps you dry, if it doesn't rain."
+is_equippable = true

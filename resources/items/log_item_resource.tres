@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://dk7gtekyhdjch"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ciqpx54uxp2ln"]
 
-[ext_resource type="Texture2D" uid="uid://8g73u7ljlsog" path="res://textures/item_icons/log.png" id="1_flcln"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_licl0"]
+[ext_resource type="Texture2D" uid="uid://dd7j4v5ebm68s" path="res://textures/item_icons/log.png" id="1_8eoo4"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_iekdk"]
 
 [resource]
-script = ExtResource("2_licl0")
+script = ExtResource("2_iekdk")
 item_key = 5
 display_name = "Log"
-icon = ExtResource("1_flcln")
-description = "A heavy log"
-is_equipable = false
+icon = ExtResource("1_8eoo4")
+description = "A big log from a tree."
+is_equippable = false

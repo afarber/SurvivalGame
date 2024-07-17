@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://b11pahokxnu8a"]
+
+[ext_resource type="Texture2D" uid="uid://fxy6dfed74j3" path="res://textures/panel_blue.png" id="1_trlju"]
+[ext_resource type="Script" path="res://ui/custom_nodes/craft_button.gd" id="2_4r6gw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvrge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an535"]
+bg_color = Color(0, 0, 0, 0.0980392)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tfm1"]
+bg_color = Color(0, 0, 0, 0.196078)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff6pm"]
+bg_color = Color(0.472415, 0.472415, 0.472415, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CraftButton" type="TextureRect"]
+custom_minimum_size = Vector2(160, 160)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_trlju")
+expand_mode = 1
+script = ExtResource("2_4r6gw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="IconTextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wvrge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_an535")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4tfm1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ff6pm")

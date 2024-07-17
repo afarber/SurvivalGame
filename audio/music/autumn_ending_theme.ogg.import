@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b628s0rhyj4xs"
+uid="uid://u2pm5wcqlksv"
 path="res://.godot/imported/autumn_ending_theme.ogg-be8b47b0be1caa6ccf6ff868f84ca821.oggvorbisstr"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/autumn_ending_theme.ogg-be8b47b0be1caa6ccf6ff
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

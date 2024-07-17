@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="ConsumableItemResource" load_steps=3 format=3 uid="uid://4shy2de7ho7b"]
+[gd_resource type="Resource" script_class="ConsumableItemResource" load_steps=3 format=3 uid="uid://5lg35c1qqkyk"]
 
-[ext_resource type="Texture2D" uid="uid://cn1p0eoxxh3vb" path="res://textures/item_icons/mushroom.png" id="1_yir5o"]
-[ext_resource type="Script" path="res://resources/items/consumable_item_resource.gd" id="2_vnabn"]
+[ext_resource type="Script" path="res://resources/items/consumable_item_resource.gd" id="1_1endi"]
+[ext_resource type="Texture2D" uid="uid://bj1tgkh3am57g" path="res://textures/item_icons/mushroom.png" id="1_tqn5h"]
 
 [resource]
-script = ExtResource("2_vnabn")
-health_change = 15.0
+script = ExtResource("1_1endi")
+health_change = -10.0
 energy_change = 15.0
 item_key = 3
 display_name = "Mushroom"
-icon = ExtResource("1_yir5o")
-description = "A mouldy mushroom"
-is_equipable = true
+icon = ExtResource("1_tqn5h")
+description = "Tasteless mushroom."
+is_equippable = true

@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ditp64o5u4tj2"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://52i7su0ilpj3"]
 
-[ext_resource type="Texture2D" uid="uid://cnmmpt0oic4c2" path="res://textures/item_icons/plant.png" id="1_1tujk"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_86ibd"]
+[ext_resource type="Texture2D" uid="uid://bvssyhc82n702" path="res://textures/item_icons/plant.png" id="1_rjvap"]
+[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_q6bat"]
 
 [resource]
-script = ExtResource("2_86ibd")
+script = ExtResource("2_q6bat")
 item_key = 2
 display_name = "Plant"
-icon = ExtResource("1_1tujk")
-description = "A green plant"
+icon = ExtResource("1_rjvap")
+description = "A green plant. Crunchy."
+is_equippable = false

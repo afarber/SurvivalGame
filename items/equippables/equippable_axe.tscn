@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://oct5e8l1x1v4"]
+[gd_scene load_steps=6 format=3 uid="uid://dae2sb2422a6f"]
 
-[ext_resource type="PackedScene" uid="uid://cw6o116q1lkgl" path="res://items/equippables/equippable_weapon_template.tscn" id="1_5rjf4"]
-[ext_resource type="PackedScene" uid="uid://daimjv0mqnd2x" path="res://meshes/axe.tscn" id="2_dsm4p"]
+[ext_resource type="PackedScene" uid="uid://bavpmg0s7k72n" path="res://items/equippables/equippable_weapon_template.tscn" id="1_oimrj"]
+[ext_resource type="PackedScene" uid="uid://bo1bldvgalws2" path="res://meshes/axe.tscn" id="2_w85e5"]
 
-[sub_resource type="Animation" id="Animation_qb1fe"]
+[sub_resource type="Animation" id="Animation_s7760"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2xjum"]
+[sub_resource type="Animation" id="Animation_1uji5"]
 resource_name = "use_item"
 length = 0.7
 tracks/0/type = "value"
@@ -64,29 +64,32 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
-"method": &"change_energy"
+"method": &"consume_energy"
+}, {
+"args": [],
+"method": &"play_swoosh_audio"
 }, {
 "args": [],
 "method": &"check_hit"
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uxmx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehxmb"]
 _data = {
-"RESET": SubResource("Animation_qb1fe"),
-"use_item": SubResource("Animation_2xjum")
+"RESET": SubResource("Animation_s7760"),
+"use_item": SubResource("Animation_1uji5")
 }
 
-[node name="EquippableAxe" instance=ExtResource("1_5rjf4")]
+[node name="EquippableAxe" instance=ExtResource("1_oimrj")]
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_0uxmx")
+"": SubResource("AnimationLibrary_ehxmb")
 }
 
-[node name="Axe" parent="MeshHolder" index="0" instance=ExtResource("2_dsm4p")]
+[node name="Axe" parent="MeshHolder" index="0" instance=ExtResource("2_w85e5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.5, -0.35)

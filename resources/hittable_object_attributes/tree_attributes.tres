@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="HittableObjectAttributes" load_steps=2 format=3 uid="uid://cs86qertxlhfk"]
-
-[ext_resource type="Script" path="res://resources/hittable_object_attributes/hittable_object_attributes.gd" id="1_wjrfh"]
-
-[resource]
-script = ExtResource("1_wjrfh")
-drop_item_key = 5
-max_health = 60
-weapon_filter = Array[int]([10])
