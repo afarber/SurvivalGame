@@ -75,7 +75,7 @@ const CRAFTING_BLUEPRINT_RESOURCES := {
 	Keys.Rope : "res://resources/crafting_blueprints/rope_blueprint.tres",
 	Keys.Pickaxe : "res://resources/crafting_blueprints/pickaxe_blueprint.tres",
 	Keys.Campfire : "res://resources/crafting_blueprints/campfire_blueprint.tres",
-	Keys.Multitool :"res://resources/crafting_blueprints/multitool_blueprint.tres" ,
+	Keys.Multitool :"res://resources/crafting_blueprints/multitool_blueprint.tres",
 	Keys.Raft : "res://resources/crafting_blueprints/raft_blueprint.tres",
 	Keys.Tent : "res://resources/crafting_blueprints/tent_blueprint.tres",
 	Keys.Tinderbox : "res://resources/crafting_blueprints/tinderbox_blueprint.tres",
@@ -102,7 +102,7 @@ static func get_equippable_item_scene(item_key:Keys) -> PackedScene:
 	return load(EQUIPPABLE_ITEM_SCENES[item_key]) 
 
 
-
+# the items being spawned during the game
 const PICKUPPABLE_ITEM_SCENES := {
 	Keys.Log : "res://interactables/pickuppables/rigid_pickuppable_log.tscn",
 	Keys.Coal : "res://interactables/pickuppables/rigid_pickuppable_coal.tscn",
