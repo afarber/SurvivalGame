@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
+
 @export var normal_speed := 3.0
 @export var sprint_speed := 5.0
 @export var walking_energy_consumption_per_1m := -0.05

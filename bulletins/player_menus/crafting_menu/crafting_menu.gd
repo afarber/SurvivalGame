@@ -11,6 +11,7 @@ func _ready() -> void:
 		var craft_button := craft_button_scene.instantiate()
 		craft_button_container.add_child(craft_button)
 		craft_button.set_item_key(craftable_item_key)
+		# TODO remove
 		craft_button.button.mouse_entered.connect(show_crafting_info.bind(craft_button.item_key))
 		craft_button.button.mouse_exited.connect(hide_crafting_info)
 		craft_button.button.pressed.connect(craft_button_pressed.bind(craft_button.item_key))

@@ -1,5 +1,5 @@
 extends Node3D
-
+class_name ItemHolder
 
 var current_item_scene:EquippableItem
 

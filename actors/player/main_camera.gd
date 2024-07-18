@@ -1,6 +1,7 @@
 extends Camera3D
 class_name MainCamera
 
+
 @onready var equippable_camera: Camera3D = %EquippableCamera
 
 
