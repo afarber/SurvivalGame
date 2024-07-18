@@ -14,7 +14,7 @@ collision_layer = 32
 
 [node name="Pickuppable" parent="." index="0"]
 item_key = 7
-prompt = "Pickup cflintstone"
+prompt = "Pickup flintstone"
 
 [node name="CollisionShape3D" parent="Pickuppable" index="0"]
 shape = SubResource("SphereShape3D_47sbr")

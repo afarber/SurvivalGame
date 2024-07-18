@@ -30,7 +30,7 @@ script = ExtResource("2_ofptj")
 
 [node name="InteractionRayCast" type="RayCast3D" parent="Head"]
 unique_name_in_owner = true
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(2.08165e-12, 2.08165e-12, -2.4)
 collision_mask = 4
 collide_with_areas = true
 script = ExtResource("2_3wla4")
