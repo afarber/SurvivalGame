@@ -1,5 +1,6 @@
 class_name SFXConfig
 
+
 enum Keys {
 	UIClick,
 	ItemPickup,

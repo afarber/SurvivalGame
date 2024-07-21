@@ -1,4 +1,5 @@
 extends AnimationPlayer
+class_name DayNightCycleAnimationPlayer
 
 
 func _enter_tree() -> void:

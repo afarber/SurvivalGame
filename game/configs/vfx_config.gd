@@ -1,5 +1,6 @@
 class_name VFXConfig
 
+
 enum Keys {
 	HitParticlesWood,
 	HitParticlesStone,

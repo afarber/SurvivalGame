@@ -1,5 +1,6 @@
 class_name MusicConfig
 
+
 enum Keys {
 	IslandAmbience,
 	MainMenuSong,
