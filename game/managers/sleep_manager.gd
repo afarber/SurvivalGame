@@ -1,4 +1,5 @@
 extends Node
+class_name SleepManager
 
 
 func _enter_tree() -> void:

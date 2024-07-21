@@ -1,11 +1,13 @@
 extends Node
 class_name InventoryManager
 
+
 const INVENTORY_SIZE = 28
 var inventory := []
 
 const HOTBAR_SIZE = 9
 var hotbar := []
+
 
 func _enter_tree() -> void:
 	EventSystem.INV_try_to_pickup_item.connect(try_to_pickup_item)

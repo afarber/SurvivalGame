@@ -1,6 +1,7 @@
 extends Node
 class_name StageController
 
+
 const FADE_TIME = 1.0
 
 var thread := Thread.new()

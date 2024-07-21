@@ -1,4 +1,5 @@
 extends Node
+class_name EquippedItemManager
 
 
 var active_slot

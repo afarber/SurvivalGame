@@ -1,6 +1,7 @@
 extends ColorRect
 class_name GameFadeController
 
+
 @export var animation_player: AnimationPlayer
 
 func _enter_tree() -> void:
