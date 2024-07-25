@@ -15,9 +15,9 @@ var scatter_nodes_ready := 0
 func _ready() -> void:
 	EventSystem.MUS_play_music.emit(music_to_play)
 	
-	for scatter_mode in scatter_nodes:
-		if scatter_mode.has_signal("build_completed"):
-			scatter_mode.build_completed.connect(scatter_node_loaded)
+	for scatter_node in scatter_nodes:
+		if scatter_node.has_signal("build_completed"):
+			scatter_node.build_completed.connect(scatter_node_loaded)
 	
 	if scatter_nodes.is_empty():
 		loading_complete.emit()

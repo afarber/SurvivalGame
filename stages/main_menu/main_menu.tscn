@@ -45,7 +45,7 @@ fog_light_color = Color(0.262745, 0.286275, 0.32549, 1)
 fog_light_energy = 0.5
 fog_density = 0.05
 
-[sub_resource type="Resource" id="Resource_uyy2x"]
+[sub_resource type="Resource" id="Resource_v2amc"]
 script = ExtResource("5_myh3s")
 amount = 150
 enabled = true
@@ -54,7 +54,7 @@ custom_seed = 1
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_2wlv2"]
+[sub_resource type="Resource" id="Resource_r4kje"]
 script = ExtResource("6_kjdfa")
 iterations = 3
 offset_step = 0.2
@@ -66,7 +66,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_8wg6y"]
+[sub_resource type="Resource" id="Resource_agx78"]
 script = ExtResource("11_yctm7")
 rotation = Vector3(0, 360, 0)
 snap_angle = Vector3(0, 0, 0)
@@ -76,7 +76,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_tsgmg"]
+[sub_resource type="Resource" id="Resource_stwyh"]
 script = ExtResource("7_ksfsk")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 1.0
@@ -92,15 +92,15 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_36d24"]
+[sub_resource type="Resource" id="Resource_aeegd"]
 script = ExtResource("4_rolah")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_uyy2x"), SubResource("Resource_2wlv2"), SubResource("Resource_8wg6y"), SubResource("Resource_tsgmg")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_v2amc"), SubResource("Resource_r4kje"), SubResource("Resource_agx78"), SubResource("Resource_stwyh")])
 
 [sub_resource type="Resource" id="Resource_wpjug"]
 script = ExtResource("10_67yqx")
 size = Vector3(68.1421, 1, 77.0843)
 
-[sub_resource type="Resource" id="Resource_gbe86"]
+[sub_resource type="Resource" id="Resource_facb3"]
 script = ExtResource("5_myh3s")
 amount = 40000
 enabled = true
@@ -109,7 +109,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_hdnew"]
+[sub_resource type="Resource" id="Resource_ck341"]
 script = ExtResource("6_kjdfa")
 iterations = 3
 offset_step = 0.2
@@ -121,7 +121,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ejun5"]
+[sub_resource type="Resource" id="Resource_0bqh0"]
 script = ExtResource("11_yctm7")
 rotation = Vector3(0, 360, 0)
 snap_angle = Vector3(0, 0, 0)
@@ -131,7 +131,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_uxece"]
+[sub_resource type="Resource" id="Resource_l8oaf"]
 script = ExtResource("7_ksfsk")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 1.0
@@ -147,9 +147,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_bpe1q"]
+[sub_resource type="Resource" id="Resource_bp6xa"]
 script = ExtResource("4_rolah")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_gbe86"), SubResource("Resource_hdnew"), SubResource("Resource_ejun5"), SubResource("Resource_uxece")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_facb3"), SubResource("Resource_ck341"), SubResource("Resource_0bqh0"), SubResource("Resource_l8oaf")])
 
 [sub_resource type="Resource" id="Resource_jexkh"]
 script = ExtResource("10_67yqx")
@@ -222,7 +222,7 @@ environment = SubResource("Environment_dek17")
 [node name="ScatterTrees" type="Node3D" parent="Island"]
 script = ExtResource("3_6vd8v")
 dbg_disable_thread = true
-modifier_stack = SubResource("Resource_36d24")
+modifier_stack = SubResource("Resource_aeegd")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -238,7 +238,7 @@ shape = SubResource("Resource_wpjug")
 [node name="ScatterGrass" type="Node3D" parent="Island"]
 script = ExtResource("3_6vd8v")
 dbg_disable_thread = true
-modifier_stack = SubResource("Resource_bpe1q")
+modifier_stack = SubResource("Resource_bp6xa")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -271,7 +271,7 @@ draw_pass_1 = SubResource("QuadMesh_mk2cu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160643, 0)
 layers = 3
 light_color = Color(0.701961, 0.545098, 0.270588, 1)
-light_energy = 0.934088
+light_energy = 0.770387
 shadow_enabled = true
 script = ExtResource("16_2ehdx")
 

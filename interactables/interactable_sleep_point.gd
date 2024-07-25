@@ -1,4 +1,5 @@
 extends Interactable
+class_name InteractableSleepPoint
 
 
 func start_interaction() -> void:
