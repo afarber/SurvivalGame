@@ -45,4 +45,3 @@ func join_thread() -> void:
 func loading_complete() -> void:
 	EventSystem.GAM_game_fade_out.emit(FADE_TIME)
 	is_stage_changing = false
-

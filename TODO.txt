@@ -1,3 +1,5 @@
+- Add params to all signals
+
 - Fix the tree stump only appearing once
 
 - When no items are equipped, left mouse click should pickup item at the floor
