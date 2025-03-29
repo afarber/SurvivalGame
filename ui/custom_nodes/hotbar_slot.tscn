@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b7fx3qv0bkluk" path="res://ui/custom_nodes/inventory_slot.tscn" id="1_hhecl"]
 [ext_resource type="Texture2D" uid="uid://fxy6dfed74j3" path="res://textures/panel_blue.png" id="2_u673t"]
 [ext_resource type="Texture2D" uid="uid://tggb27oky30p" path="res://textures/panelInset_beige.png" id="3_3kxpm"]
-[ext_resource type="Script" path="res://ui/custom_nodes/hotbar_slot.gd" id="3_wuicy"]
+[ext_resource type="Script" uid="uid://ubqw6qv6ank1" path="res://ui/custom_nodes/hotbar_slot.gd" id="3_wuicy"]
 
 [node name="HotbarSlot" groups=["HotbarSlots"] instance=ExtResource("1_hhecl")]
 texture = ExtResource("2_u673t")

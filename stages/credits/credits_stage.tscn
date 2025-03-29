@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://jdgmny405q2y"]
 
-[ext_resource type="Script" path="res://stages/credits/credits_stage.gd" id="1_mn0wb"]
+[ext_resource type="Script" uid="uid://cub2p0nh65g7f" path="res://stages/credits/credits_stage.gd" id="1_mn0wb"]
 [ext_resource type="PackedScene" uid="uid://bx6mp6l5hcxop" path="res://meshes/water.tscn" id="2_dax2y"]
 [ext_resource type="PackedScene" uid="uid://bkjiq280m8mmk" path="res://meshes/raft.tscn" id="3_7d3eb"]
-[ext_resource type="Script" path="res://game/shaking_camera.gd" id="4_qyudb"]
+[ext_resource type="Script" uid="uid://dmrbe6ayex7a6" path="res://game/shaking_camera.gd" id="4_qyudb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n06bi"]
 sky_top_color = Color(0.32549, 0.878431, 1, 1)
@@ -65,7 +65,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hfw6i"]
 _data = {
-"credits_animation": SubResource("Animation_jba43")
+&"credits_animation": SubResource("Animation_jba43")
 }
 
 [node name="CreditsStage" type="Node"]

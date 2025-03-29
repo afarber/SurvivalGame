@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://ft2mnrxg3awc"]
 
 [ext_resource type="PackedScene" uid="uid://h6m2cttljfi8" path="res://bulletins/bulletin_template.tscn" id="1_0m8rg"]
-[ext_resource type="Script" path="res://bulletins/player_menus/player_menu_base.gd" id="2_5xscr"]
+[ext_resource type="Script" uid="uid://bdrtwvfirwkw2" path="res://bulletins/player_menus/player_menu_base.gd" id="2_5xscr"]
 [ext_resource type="Texture2D" uid="uid://tggb27oky30p" path="res://textures/panelInset_beige.png" id="2_lqv4p"]
 [ext_resource type="PackedScene" uid="uid://b7fx3qv0bkluk" path="res://ui/custom_nodes/inventory_slot.tscn" id="3_0fbb7"]
 [ext_resource type="Texture2D" uid="uid://dksddk1e3numc" path="res://textures/cross.png" id="3_2sb38"]
 [ext_resource type="Texture2D" uid="uid://b3lewqpquxqi4" path="res://textures/panelInset_brown.png" id="4_gva50"]
-[ext_resource type="Script" path="res://ui/custom_nodes/scrap_item_slot.gd" id="6_3cg4o"]
+[ext_resource type="Script" uid="uid://i06kplxdyy46" path="res://ui/custom_nodes/scrap_item_slot.gd" id="6_3cg4o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvdiu"]
 

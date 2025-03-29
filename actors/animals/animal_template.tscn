@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtkfdso57r2lh"]
 
 [ext_resource type="PackedScene" uid="uid://d1ndbdopst27u" path="res://objects/hitbox/hitbox.tscn" id="1_xqlxr"]
-[ext_resource type="Script" path="res://actors/animals/animal.gd" id="1_y0f6p"]
+[ext_resource type="Script" uid="uid://bi7gpcu4txs2d" path="res://actors/animals/animal.gd" id="1_y0f6p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_n5e2m"]
 

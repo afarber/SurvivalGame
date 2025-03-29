@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://p4440xbx3wxh" path="res://textures/circle32.png" id="1_l2ylg"]
 [ext_resource type="PackedScene" uid="uid://hmyyq5o611fp" path="res://ui/custom_nodes/hotbar_slot.tscn" id="2_1a3wd"]
-[ext_resource type="Script" path="res://ui/hud/hotbar_ui.gd" id="2_3xlt5"]
-[ext_resource type="Script" path="res://ui/hud/player_stats_container.gd" id="4_eoi56"]
+[ext_resource type="Script" uid="uid://dtdvnr36n87rn" path="res://ui/hud/hotbar_ui.gd" id="2_3xlt5"]
+[ext_resource type="Script" uid="uid://xpukhatqncrr" path="res://ui/hud/player_stats_container.gd" id="4_eoi56"]
 [ext_resource type="Texture2D" uid="uid://dte26mhleojvf" path="res://textures/square32.png" id="4_iu14x"]
 
 [node name="HUD" type="Control"]

@@ -77,8 +77,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4cgc"]
 _data = {
-"RESET": SubResource("Animation_mjdq7"),
-"use_item": SubResource("Animation_c3k5s")
+&"RESET": SubResource("Animation_mjdq7"),
+&"use_item": SubResource("Animation_c3k5s")
 }
 
 [node name="EquippableRaft" instance=ExtResource("1_acxg8")]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://bb4ajqrspiuc8"]
 
-[ext_resource type="Script" path="res://actors/player/player.gd" id="1_u4shn"]
-[ext_resource type="Script" path="res://actors/player/interaction_ray_cast.gd" id="2_3wla4"]
-[ext_resource type="Script" path="res://actors/player/main_camera.gd" id="2_ofptj"]
-[ext_resource type="Script" path="res://actors/player/item_holder.gd" id="3_a5bbk"]
-[ext_resource type="Script" path="res://game/managers/inventory_manager.gd" id="3_qnmcm"]
-[ext_resource type="Script" path="res://game/managers/equipped_item_manager.gd" id="4_tgk6a"]
-[ext_resource type="Script" path="res://game/managers/player_stats_manager.gd" id="7_2amrl"]
-[ext_resource type="Script" path="res://game/managers/sleep_manager.gd" id="8_u11tx"]
+[ext_resource type="Script" uid="uid://cim3fir67nrhp" path="res://actors/player/player.gd" id="1_u4shn"]
+[ext_resource type="Script" uid="uid://b65ggtgyjs8kq" path="res://actors/player/interaction_ray_cast.gd" id="2_3wla4"]
+[ext_resource type="Script" uid="uid://bee7dfuq6hc4g" path="res://actors/player/main_camera.gd" id="2_ofptj"]
+[ext_resource type="Script" uid="uid://d12tqnhgfmgs" path="res://actors/player/item_holder.gd" id="3_a5bbk"]
+[ext_resource type="Script" uid="uid://tjmwr60m82la" path="res://game/managers/inventory_manager.gd" id="3_qnmcm"]
+[ext_resource type="Script" uid="uid://bm06v0r6jvxc1" path="res://game/managers/equipped_item_manager.gd" id="4_tgk6a"]
+[ext_resource type="Script" uid="uid://3ry0b17yk7ui" path="res://game/managers/player_stats_manager.gd" id="7_2amrl"]
+[ext_resource type="Script" uid="uid://clta8d425as5h" path="res://game/managers/sleep_manager.gd" id="8_u11tx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1tkb2"]
 radius = 0.25

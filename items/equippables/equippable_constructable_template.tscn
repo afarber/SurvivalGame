@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dd02653n1jysq"]
 
 [ext_resource type="PackedScene" uid="uid://c68g8qkg2pveq" path="res://items/equippables/equippable_template.tscn" id="1_ncbas"]
-[ext_resource type="Script" path="res://items/equippables/equippable_constructable.gd" id="2_56tv7"]
+[ext_resource type="Script" uid="uid://j85oomqqxgrp" path="res://items/equippables/equippable_constructable.gd" id="2_56tv7"]
 
 [node name="EquippableConstructable" instance=ExtResource("1_ncbas")]
 script = ExtResource("2_56tv7")

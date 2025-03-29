@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cl4ignln7i74t"]
 
 [ext_resource type="PackedScene" uid="uid://c68g8qkg2pveq" path="res://items/equippables/equippable_template.tscn" id="1_xvfea"]
-[ext_resource type="Script" path="res://items/equippables/equippable_consumable.gd" id="2_8b1rd"]
+[ext_resource type="Script" uid="uid://b821ay8gqlws2" path="res://items/equippables/equippable_consumable.gd" id="2_8b1rd"]
 
 [node name="EquippableConsumableItem" instance=ExtResource("1_xvfea")]
 script = ExtResource("2_8b1rd")

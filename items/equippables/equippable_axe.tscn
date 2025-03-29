@@ -80,8 +80,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ehxmb"]
 _data = {
-"RESET": SubResource("Animation_s7760"),
-"use_item": SubResource("Animation_1uji5")
+&"RESET": SubResource("Animation_s7760"),
+&"use_item": SubResource("Animation_1uji5")
 }
 
 [node name="EquippableAxe" instance=ExtResource("1_oimrj")]

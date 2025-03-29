@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://byr06i8ntwmjk"]
 
 [ext_resource type="PackedScene" uid="uid://ft2mnrxg3awc" path="res://bulletins/player_menus/player_menu_base.tscn" id="1_ocp6e"]
-[ext_resource type="Script" path="res://bulletins/player_menus/crafting_menu/crafting_menu.gd" id="2_jnfdn"]
+[ext_resource type="Script" uid="uid://c6fyil5ehamku" path="res://bulletins/player_menus/crafting_menu/crafting_menu.gd" id="2_jnfdn"]
 [ext_resource type="PackedScene" uid="uid://b11pahokxnu8a" path="res://ui/custom_nodes/craft_button.tscn" id="3_rib4x"]
 
 [node name="CraftingMenu" instance=ExtResource("1_ocp6e")]

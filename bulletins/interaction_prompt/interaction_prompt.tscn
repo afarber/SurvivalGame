@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kp70nafp2nyh"]
 
-[ext_resource type="Script" path="res://bulletins/interaction_prompt/interaction_prompt.gd" id="1_2jkem"]
+[ext_resource type="Script" uid="uid://c8wcpavpb8sir" path="res://bulletins/interaction_prompt/interaction_prompt.gd" id="1_2jkem"]
 [ext_resource type="PackedScene" uid="uid://h6m2cttljfi8" path="res://bulletins/bulletin_template.tscn" id="1_ej61x"]
 
 [node name="InteractionPrompt" instance=ExtResource("1_ej61x")]

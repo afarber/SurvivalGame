@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://twh5kvwtljsj"]
 
-[ext_resource type="Script" path="res://bulletins/fading_bulletin/fading_bulletin.gd" id="1_4s8se"]
+[ext_resource type="Script" uid="uid://cdoftxuyfxpd5" path="res://bulletins/fading_bulletin/fading_bulletin.gd" id="1_4s8se"]
 
 [node name="FadingBulletinBase" type="Control"]
 layout_mode = 3

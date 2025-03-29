@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://h6m2cttljfi8"]
 
-[ext_resource type="Script" path="res://bulletins/bulletin.gd" id="1_eumd7"]
+[ext_resource type="Script" uid="uid://ce7ogrkujl0lu" path="res://bulletins/bulletin.gd" id="1_eumd7"]
 
 [node name="BulletinTemplate" type="Control"]
 layout_mode = 3

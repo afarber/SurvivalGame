@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HittableObjectAttributes" load_steps=2 format=3 uid="uid://cwpq8wv6elye0"]
 
-[ext_resource type="Script" path="res://resources/hittable_object_attributes/hittable_object_attributes.gd" id="1_6w3x7"]
+[ext_resource type="Script" uid="uid://be2cbm3h0fybj" path="res://resources/hittable_object_attributes/hittable_object_attributes.gd" id="1_6w3x7"]
 
 [resource]
 script = ExtResource("1_6w3x7")

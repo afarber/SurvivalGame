@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bavpmg0s7k72n" path="res://items/equippables/equippable_weapon_template.tscn" id="1_jjsnu"]
 [ext_resource type="AudioStream" uid="uid://bmyngas8g5ykg" path="res://audio/sfx/torch.wav" id="3_5srnk"]
-[ext_resource type="Script" path="res://game/flickering_light.gd" id="3_aqerk"]
+[ext_resource type="Script" uid="uid://hsum20vg61xk" path="res://game/flickering_light.gd" id="3_aqerk"]
 [ext_resource type="PackedScene" uid="uid://craogubux1l2n" path="res://meshes/torch.tscn" id="3_yush3"]
 
 [sub_resource type="Animation" id="Animation_s7760"]
@@ -82,8 +82,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ehxmb"]
 _data = {
-"RESET": SubResource("Animation_s7760"),
-"use_item": SubResource("Animation_1uji5")
+&"RESET": SubResource("Animation_s7760"),
+&"use_item": SubResource("Animation_1uji5")
 }
 
 [sub_resource type="Gradient" id="Gradient_pdnfr"]

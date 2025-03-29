@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://4uokint61d0q"]
 
 [ext_resource type="Texture2D" uid="uid://fsngb3h0tv16" path="res://textures/item_icons/campfire.png" id="1_vsayn"]
-[ext_resource type="Script" path="res://resources/items/item_resource.gd" id="2_gsxlc"]
+[ext_resource type="Script" uid="uid://di3tfgypbekqu" path="res://resources/items/item_resource.gd" id="2_gsxlc"]
 
 [resource]
 script = ExtResource("2_gsxlc")

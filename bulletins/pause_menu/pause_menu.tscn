@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://twh5kvwtljsj" path="res://bulletins/fading_bulletin/fading_bulletin_template.tscn" id="1_8hy1j"]
 [ext_resource type="Theme" uid="uid://b40t612ee1k4l" path="res://resources/default_ui_theme.tres" id="2_q87b3"]
-[ext_resource type="Script" path="res://bulletins/pause_menu/pause_menu.gd" id="3_f45f2"]
-[ext_resource type="Script" path="res://ui/custom_nodes/ui_button.gd" id="4_bbhlw"]
+[ext_resource type="Script" uid="uid://dqk7mygafaof8" path="res://bulletins/pause_menu/pause_menu.gd" id="3_f45f2"]
+[ext_resource type="Script" uid="uid://7s1qeh8glvt1" path="res://ui/custom_nodes/ui_button.gd" id="4_bbhlw"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_yuh7s"]
 device = -1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c68g8qkg2pveq"]
 
-[ext_resource type="Script" path="res://items/equippables/equippable_item.gd" id="1_47p7c"]
+[ext_resource type="Script" uid="uid://dd5tabl262ggv" path="res://items/equippables/equippable_item.gd" id="1_47p7c"]
 
 [node name="EquippableItem" type="Node3D"]
 script = ExtResource("1_47p7c")

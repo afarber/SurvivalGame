@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dhgrif8sayl05" path="res://objects/constructables/constructable_template.tscn" id="1_o2ibd"]
 [ext_resource type="PackedScene" uid="uid://bkjiq280m8mmk" path="res://meshes/raft.tscn" id="2_acwbi"]
-[ext_resource type="Script" path="res://interactables/interactable_raft.gd" id="3_engyj"]
+[ext_resource type="Script" uid="uid://ca2oohqyynycn" path="res://interactables/interactable_raft.gd" id="3_engyj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gcw2i"]
 size = Vector3(2.50153, 0.229828, 4.98944)

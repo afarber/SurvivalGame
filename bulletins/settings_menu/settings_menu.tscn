@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://twh5kvwtljsj" path="res://bulletins/fading_bulletin/fading_bulletin_template.tscn" id="1_3afic"]
 [ext_resource type="Theme" uid="uid://b40t612ee1k4l" path="res://resources/default_ui_theme.tres" id="2_pqva3"]
 [ext_resource type="Texture2D" uid="uid://c5wsbosbt6wjr" path="res://textures/check_true.png" id="2_xkdte"]
-[ext_resource type="Script" path="res://bulletins/settings_menu/settings_menu.gd" id="3_cpjha"]
+[ext_resource type="Script" uid="uid://c77xdkynwr734" path="res://bulletins/settings_menu/settings_menu.gd" id="3_cpjha"]
 [ext_resource type="Texture2D" uid="uid://2iotg6e4wxw5" path="res://textures/check_false.png" id="3_sct8q"]
-[ext_resource type="Script" path="res://ui/custom_nodes/ui_button.gd" id="6_v3lkh"]
+[ext_resource type="Script" uid="uid://7s1qeh8glvt1" path="res://ui/custom_nodes/ui_button.gd" id="6_v3lkh"]
 
 [node name="SettingsMenu" instance=ExtResource("1_3afic")]
 theme = ExtResource("2_pqva3")

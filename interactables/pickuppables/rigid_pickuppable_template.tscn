@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bk0yn8bkq1ca5"]
 
-[ext_resource type="Script" path="res://interactables/pickuppables/pickuppable.gd" id="1_51qml"]
+[ext_resource type="Script" uid="uid://bwoto2cn6q3jr" path="res://interactables/pickuppables/pickuppable.gd" id="1_51qml"]
 
 [node name="RigidPickuppableTemplate" type="RigidBody3D"]
 collision_layer = 48

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ConsumableItemResource" load_steps=3 format=3 uid="uid://5lg35c1qqkyk"]
 
-[ext_resource type="Script" path="res://resources/items/consumable_item_resource.gd" id="1_1endi"]
+[ext_resource type="Script" uid="uid://cehecwodpnmbh" path="res://resources/items/consumable_item_resource.gd" id="1_1endi"]
 [ext_resource type="Texture2D" uid="uid://bj1tgkh3am57g" path="res://textures/item_icons/mushroom.png" id="1_tqn5h"]
 
 [resource]

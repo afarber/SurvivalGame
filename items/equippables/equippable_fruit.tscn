@@ -101,8 +101,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jb5jr"]
 _data = {
-"RESET": SubResource("Animation_a1h4f"),
-"use_item": SubResource("Animation_ejeba")
+&"RESET": SubResource("Animation_a1h4f"),
+&"use_item": SubResource("Animation_ejeba")
 }
 
 [node name="EquippableFruit" instance=ExtResource("1_mkt6n")]

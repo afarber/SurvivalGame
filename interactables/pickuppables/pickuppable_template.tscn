@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vnpe4x2t1gfx"]
 
-[ext_resource type="Script" path="res://interactables/pickuppables/pickuppable.gd" id="1_eq7p4"]
+[ext_resource type="Script" uid="uid://bwoto2cn6q3jr" path="res://interactables/pickuppables/pickuppable.gd" id="1_eq7p4"]
 
 [node name="PickuppableTemplate" type="Node3D"]
 

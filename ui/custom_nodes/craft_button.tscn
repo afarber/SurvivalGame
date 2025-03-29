@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b11pahokxnu8a"]
 
 [ext_resource type="Texture2D" uid="uid://fxy6dfed74j3" path="res://textures/panel_blue.png" id="1_trlju"]
-[ext_resource type="Script" path="res://ui/custom_nodes/craft_button.gd" id="2_4r6gw"]
+[ext_resource type="Script" uid="uid://cpbvehp6tvo0f" path="res://ui/custom_nodes/craft_button.gd" id="2_4r6gw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvrge"]
 

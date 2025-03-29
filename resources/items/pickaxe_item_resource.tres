@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="WeaponItemResource" load_steps=3 format=3 uid="uid://debou3i74gb4j"]
 
 [ext_resource type="Texture2D" uid="uid://baj1y0gc1y7bp" path="res://textures/item_icons/pickaxe.png" id="1_v3jmn"]
-[ext_resource type="Script" path="res://resources/items/weapon_item_resource.gd" id="2_gw7oc"]
+[ext_resource type="Script" uid="uid://cmm1bur6il0ac" path="res://resources/items/weapon_item_resource.gd" id="2_gw7oc"]
 
 [resource]
 script = ExtResource("2_gw7oc")
 damage = 20
 range = 1.5
+energy_change_per_use = -0.5
 item_key = 11
 display_name = "Pickaxe"
 icon = ExtResource("1_v3jmn")

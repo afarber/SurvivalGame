@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqugx48yr07sa"]
 
-[ext_resource type="Script" path="res://objects/hittable_objects/hittable_object.gd" id="1_vmhew"]
+[ext_resource type="Script" uid="uid://xuonlgkfbfky" path="res://objects/hittable_objects/hittable_object.gd" id="1_vmhew"]
 [ext_resource type="PackedScene" uid="uid://d1ndbdopst27u" path="res://objects/hitbox/hitbox.tscn" id="2_5t4cj"]
 
 [node name="HittableObjectTemplate" type="Node3D"]
